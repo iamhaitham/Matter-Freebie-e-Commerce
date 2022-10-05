@@ -11,3 +11,63 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'MarkPro';
+  src: local('../public/fonts/Mark-Pro.ttf'),
+   url('../public/fonts/Mark-Pro.ttf') format('truetype');
+  font-weight: bold;
+}
+
+.bg-mid-grey {
+  background-color: #33333A;
+}
+
+.white {
+  color: white;
+}
+
+.grey-text {
+  color: #dedede;
+}
+
+.mid-grey {
+  color: #33333A;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-content-space-around {
+  justify-content: space-around;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.text-align-center {
+  text-align: center;
+}
