@@ -1,0 +1,14 @@
+.details {
+    line-height: 25px;
+    font-size: 14px;
+}
+
+.columnTitleSpan {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.addressParagraph {
+    margin-top: 1rem;
+}
