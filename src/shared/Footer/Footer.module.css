@@ -1,0 +1,47 @@
+.columnTitleSpan {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.details {
+    line-height: 25px;
+    font-size: 14px;
+}
+
+.padding-2rem {
+    padding: 2rem;
+}
+
+.formStyles {
+    width: 26rem;
+    margin-top: 1rem;
+}
+
+.inputStyles {
+    border: 1px solid #666666;
+    padding: 0.5rem;
+    width: 15rem;
+}
+
+.inputStyles:focus {
+    outline: none;
+}
+
+.inputStyles::placeholder {
+    color: #dedede;
+}
+
+.buttonStyles {
+    padding: 0.5rem;
+    width: 8rem;
+    border: none;
+}
+
+.iconStyles {
+    margin-top: 0.5rem;
+    width: 20px;
+    cursor: pointer;
+    margin: 1rem 0.25rem;
+    filter: invert(1);
+}
