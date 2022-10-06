@@ -4,10 +4,15 @@ function Section(props) {
     const { children, customCss } = props;
     const { marginBottom } = styles;
     const sectionWrapper = `flex-column align-items-center ${ marginBottom }`;
-    const sectionCss = `${ customCss } ${ sectionWrapper }`;
+
+  function getSectionCss() {
+    return !!customCss 
+    ? `${ customCss } ${ sectionWrapper }`
+    : `${ sectionWrapper }`;
+  }    
 
     return (
-      <div className={ sectionCss }>
+      <div className={ getSectionCss() }>
         { children }
       </div>
     );
