@@ -16,8 +16,8 @@ function Image(props) {
     }
 
     return (
-        <div>
-            <img src={ src } alt={ alt } className={ getImageCss() }/>
+        <div className={ getImageCss() }>
+            <img src={ src } alt={ alt }/>
             { doesDescriptionExist() }
         </div>
     );
