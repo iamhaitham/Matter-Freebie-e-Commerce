@@ -8,10 +8,10 @@ function Image(props) {
     }
 
     function getImageCss() {
-        if (!imageCss) {
-            return;
-        }
-        
+        if (imageCss) {
+            return `${imageCss} abcdefg`;
+        }   
+    }
         return imageCss;
     }
 
