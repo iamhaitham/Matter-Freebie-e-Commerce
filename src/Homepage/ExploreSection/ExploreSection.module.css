@@ -1,7 +1,7 @@
 .articlesWrapperStyle {
     display: flex;
     justify-content: space-between;
-    width: 74rem;
+    width: 73rem;
 }
 
 .articlesWrapperStyle div[data-index='1'] img {
