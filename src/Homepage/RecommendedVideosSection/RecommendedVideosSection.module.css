@@ -2,3 +2,12 @@
     border: none;
     padding: 0.75rem 1rem;
 }
+
+.imageContainerStyles {
+    width: 73rem;
+    justify-content: space-between;
+}
+
+.videoImageStyles > img {
+    width: 22.5rem;
+}
