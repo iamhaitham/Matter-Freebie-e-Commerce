@@ -1,0 +1,19 @@
+.articlesWrapperStyle {
+    display: flex;
+    justify-content: space-between;
+    width: 74rem;
+}
+
+.articlesWrapperStyle div[data-index='1'] img {
+    margin-top: 3.5rem;
+}
+
+.articlesWrapperStyle div[data-index='4'] p:nth-of-type(2) {
+    margin-top: 3.5rem;
+}
+
+.articlesThirdColumnStyle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
