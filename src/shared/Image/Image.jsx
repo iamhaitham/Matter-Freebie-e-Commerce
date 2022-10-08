@@ -1,5 +1,5 @@
 function Image(props) {
-    const { src, alt, imageCss, description } = props;
+    const { id, src, alt, imageCss, description } = props;
 
     function doesDescriptionExist() {
         if (description) {
@@ -7,9 +7,21 @@ function Image(props) {
         }
     }
 
+    function getImageCss() {
+        if (imageCss) {
+            return `${imageCss} abcdefg`;
+        }   
+    }
+
+    function getId() {
+        if (id) {
+            return id;
+        }
+    }
+
     return (
-        <div>
-            <img src={ src } alt={ alt } className={ imageCss }/>
+        <div data-id={ getId() } className={ getImageCss() }>
+            <img src={ src } alt={ alt }/>
             { doesDescriptionExist() }
         </div>
     );
