@@ -19,8 +19,8 @@ function RecommendedVideosSection() {
         const { id, description, src, alt } = entity;
 
         return (
-            <div className={ recommendedVideosSectionStyles }>
-                <Image key={ id } 
+            <div key={ id } className={ recommendedVideosSectionStyles }>
+                <Image id={ id } 
                     src={ src } 
                     alt={ alt } 
                     imageCss={ videoImageStyles }/>
