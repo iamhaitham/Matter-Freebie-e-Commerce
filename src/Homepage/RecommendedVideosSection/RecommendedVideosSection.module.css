@@ -11,3 +11,8 @@
 .videoImageStyles > img {
     width: 22.5rem;
 }
+
+.recommendedVideosSectionStyles {
+    display: flex;
+    flex-direction: column;
+}
