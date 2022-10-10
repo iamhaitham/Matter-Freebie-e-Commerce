@@ -1,10 +1,12 @@
-import Article from "../../shared/Article/Article";
-import SectionTitle from "../../shared/SectionTitle/SectionTitle";
-import Section from "../Section/Sections";
+import Article from '../../shared/Article/Article';
+import SectionTitle from '../../shared/SectionTitle/SectionTitle';
+import Section from '../Section/Sections';
+import Button from '../../shared/Button/Button';
 import styles from './ExploreSection.module.css';
 
 function ExploreSection() {
-    const { articlesWrapperStyle, articlesThirdColumnStyle } = styles;
+    const { articlesWrapperStyle, articlesThirdColumnStyle, buttonStyles } = styles;
+    const buttonCss = `bg-mid-grey grey-text ${ buttonStyles }`;
 
     const exploreSectionTitle = `Explore`;
     const articlesEntities = [
@@ -43,6 +45,7 @@ function ExploreSection() {
                     { articles[4] }
                 </div>
             </div>
+            <Button content='SEE THE JOURNAL' customButtonCss={ buttonCss }/>
         </Section>
     );
 }

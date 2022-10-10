@@ -17,3 +17,10 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.buttonStyles {
+    padding: 1rem 0.5rem;
+    width: 10rem;
+    border: none;
+    margin-top: 2rem;
+}
