@@ -70,9 +70,10 @@ function FeaturedSection() {
                     id={ id }
                     src={ src } 
                     alt={ alt }
-                    imageCss={ imageStyles }/>
-                { showDescriptionAndPrice(description, price) }
-                { isNewLabelVisible(isNew) }
+                    imageCss={ imageStyles }>
+                    { showDescriptionAndPrice(description, price) }
+                    { isNewLabelVisible(isNew) }
+                </Image>
                 { isButtonVisible(id) }
             </div>
         );

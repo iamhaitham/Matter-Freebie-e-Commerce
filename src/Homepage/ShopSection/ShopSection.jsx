@@ -44,8 +44,9 @@ function ShopSection() {
                 <Image id={ id }
                        src={ src } 
                        alt={ alt } 
-                       description={ description } 
-                       imageCss={ imageCss }/>
+                       imageCss={ imageCss }>
+                        <p>{ description }</p>
+                </Image>
                 { isButtonVisible(id) && 
                     <Button content={ buttonContent } customButtonCss={ buttonCss }/>
                 }

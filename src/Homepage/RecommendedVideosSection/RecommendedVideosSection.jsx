@@ -23,8 +23,9 @@ function RecommendedVideosSection() {
                 <Image id={ id } 
                     src={ src } 
                     alt={ alt } 
-                    imageCss={ videoImageStyles }/>
-                <p>{ description }</p>
+                    imageCss={ videoImageStyles }>
+                        <p>{ description }</p>
+                </Image>
             </div>
         );
     });
