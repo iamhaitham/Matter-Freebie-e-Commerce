@@ -8,6 +8,10 @@
     justify-content: space-between;
 }
 
+.videoImageStyles {
+    position: relative;
+}
+
 .videoImageStyles > img {
     width: 22.5rem;
 }
@@ -15,4 +19,18 @@
 .recommendedVideosSectionStyles {
     display: flex;
     flex-direction: column;
+}
+
+.playVideoImageStyles > img {
+    width: 5rem;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.playVideoImageStyles > img:hover {
+    opacity: 1;
+    cursor: pointer;
 }

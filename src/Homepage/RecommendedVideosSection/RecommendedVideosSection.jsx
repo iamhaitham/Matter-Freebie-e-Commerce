@@ -6,10 +6,12 @@ import Button from '../../shared/Button/Button';
 import styles from './RecommendedVideosSection.module.css';
 
 function RecommendedVideosSection() {
-    const { buttonStyles, videoImageStyles, imageContainerStyles, recommendedVideosSectionStyles } =  styles;
+    const { buttonStyles, videoImageStyles, imageContainerStyles, recommendedVideosSectionStyles, playVideoImageStyles } =  styles;
     const buttonCss = `bg-mid-grey grey-text ${ buttonStyles }`;
 
     const content = `Recommended Videos`;
+
+    const playVideoImage = { src: '/images/play-video.png', alt: 'Play video icon' };
     const videosEntities = [
         { id: 1, description: 'Jamdani', src:'/images/recommended-video-1.png', alt:'Jamdani' },
         { id: 2, description: 'Lorem ipsum dolor sit amet', src:'/images/recommended-video-2.png', alt:'Lorem ipsum dolor sit amet' },
@@ -25,6 +27,9 @@ function RecommendedVideosSection() {
                     alt={ alt } 
                     imageCss={ videoImageStyles }>
                         <p>{ description }</p>
+                        <Image src={ playVideoImage.src }
+                               alt={ playVideoImage.alt }
+                               imageCss={ playVideoImageStyles }/>
                 </Image>
             </div>
         );
