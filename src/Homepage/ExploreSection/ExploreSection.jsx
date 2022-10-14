@@ -5,7 +5,7 @@ import Button from '../../shared/Button/Button';
 import styles from './ExploreSection.module.css';
 
 function ExploreSection() {
-    const { articlesWrapperStyle, articlesThirdColumnStyle, buttonStyles } = styles;
+    const { articlesWrapperStyle, articlesThirdColumnStyle, buttonStyles, exploreSectionStyles } = styles;
     const buttonCss = `bg-mid-grey grey-text ${ buttonStyles }`;
 
     const exploreSectionTitle = `Explore`;
@@ -32,7 +32,7 @@ function ExploreSection() {
     });
 
     return (
-        <Section>
+        <Section customCss={ exploreSectionStyles }>
             <SectionTitle content={ exploreSectionTitle }/>
             <div className={ articlesWrapperStyle }>
                 { articles[0] }

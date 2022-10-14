@@ -17,6 +17,11 @@
 }
 
 .recommendedVideosSectionStyles {
+    background-color: rgba(252,252,252, 1);
+    padding-bottom: 3rem;
+}
+
+.recommendedVideosStyles {
     display: flex;
     flex-direction: column;
 }

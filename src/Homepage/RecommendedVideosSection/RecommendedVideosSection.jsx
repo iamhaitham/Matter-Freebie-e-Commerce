@@ -6,7 +6,7 @@ import Button from '../../shared/Button/Button';
 import styles from './RecommendedVideosSection.module.css';
 
 function RecommendedVideosSection() {
-    const { buttonStyles, videoImageStyles, imageContainerStyles, recommendedVideosSectionStyles, playVideoImageStyles } =  styles;
+    const { buttonStyles, videoImageStyles, imageContainerStyles, recommendedVideosStyles, recommendedVideosSectionStyles, playVideoImageStyles } =  styles;
     const buttonCss = `bg-mid-grey grey-text ${ buttonStyles }`;
 
     const content = `Recommended Videos`;
@@ -21,7 +21,7 @@ function RecommendedVideosSection() {
         const { id, description, src, alt } = entity;
 
         return (
-            <div key={ id } className={ recommendedVideosSectionStyles }>
+            <div key={ id } className={ recommendedVideosStyles }>
                 <Image id={ id } 
                     src={ src } 
                     alt={ alt } 
@@ -36,7 +36,7 @@ function RecommendedVideosSection() {
     });
 
     return (
-        <Section>
+        <Section customCss={ recommendedVideosSectionStyles }>
             <SectionTitle content={ content }/>
             <ImageContainer customCss={ imageContainerStyles }>
                 { videos }

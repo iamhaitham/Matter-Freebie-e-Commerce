@@ -7,7 +7,7 @@ import Button from '../../shared/Button/Button';
 import styles from './FeaturedSection.module.css';
 
 function FeaturedSection() {
-    const { buttonStyles, featuredHoveredImagesStyles } = styles;
+    const { buttonStyles, featuredHoveredImagesStyles, featuredSecitonStyles } = styles;
     const buttonCss = `bg-mid-grey grey-text ${ buttonStyles }`;
     const [quickView, setQuickView] = useState({ id: 0, isQuickView: false });
 
@@ -80,7 +80,7 @@ function FeaturedSection() {
     });
 
     return (
-        <Section>
+        <Section customCss={ featuredSecitonStyles }>
             <SectionTitle content={ featuredsectionTitle }/>
             <ImageContainer customCss={ imageContainerStyles }>
                 { featuredItems }
