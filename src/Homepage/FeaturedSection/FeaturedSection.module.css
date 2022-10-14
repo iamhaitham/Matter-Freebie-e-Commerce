@@ -3,6 +3,10 @@
     height: 24.5rem;
 }
 
+.imageStyles {
+    margin-bottom: 3rem;
+}
+
 .imageContainerStyles {
     justify-content: center;
 }
