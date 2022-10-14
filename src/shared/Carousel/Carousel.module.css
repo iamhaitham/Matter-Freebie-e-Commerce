@@ -17,3 +17,43 @@
 .carouselContainerStyles span:nth-child(2) {
     left: 95%;
 }
+
+.imageStyles {
+    position: relative;
+}
+
+.imageStyles > h1 {
+    opacity: 1;
+    color: rgba(255,255,255,1);
+    font-family: "VLNewParisHeadline";
+    font-size: 60px;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0px;
+    text-align: left;
+    line-height: 80px;
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    width: 25rem;
+}
+
+.shopNowButtonStyles {
+    opacity: 1;
+    color: rgba(255,255,255,1);
+    font-family: "ProximaNova-Bold";
+    font-size: 1rem;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 20px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    user-select: none;
+}

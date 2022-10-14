@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import Button from '../Button/Button';
 import Image from '../Image/Image';
 import styles from './Carousel.module.css';
 
 function Carousel({ photos }) {
-    const { imageStyles, arrowStyles, carouselContainerStyles } = styles;
+    const { imageStyles, arrowStyles, carouselContainerStyles, shopNowButtonStyles } = styles;
     const [carouselImage, setCarouselImage] = useState(photos[0]);
 
     function handleNext() {
@@ -28,7 +29,10 @@ function Carousel({ photos }) {
                 <Image key={ carouselImage.id } 
                        src={ carouselImage.src } 
                        alt={ carouselImage.alt }
-                       imageCss={ imageStyles }/>
+                       imageCss={ imageStyles }>
+                        <h1>{ carouselImage.title }</h1>
+                        <Button content='SHOP NOW' customButtonCss={ shopNowButtonStyles }/>
+                </Image>
                 <span className={ arrowStyles } onClick={ handleNext }>→</span>
                 <span className={ arrowStyles } onClick={ handlePrevious }>←</span>
             </div>
