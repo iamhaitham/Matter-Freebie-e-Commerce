@@ -12,6 +12,7 @@
     color: white;
     cursor: pointer;
     top: 45%;
+    user-select: none;
 }
 
 .carouselContainerStyles span:nth-child(2) {
