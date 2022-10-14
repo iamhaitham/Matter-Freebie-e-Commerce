@@ -1,0 +1,19 @@
+.imageStyles img {
+    width: 100%;
+}
+
+.carouselContainerStyles {
+    position: relative;
+}
+
+.arrowStyles {
+    font-size: 5rem;
+    position: absolute;
+    color: white;
+    cursor: pointer;
+    top: 45%;
+}
+
+.carouselContainerStyles span:nth-child(2) {
+    left: 95%;
+}
