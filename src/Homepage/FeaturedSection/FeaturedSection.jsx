@@ -2,7 +2,7 @@ import { useState } from "react";
 import Image from "../../shared/Image/Image";
 import ImageContainer from "../../shared/ImageContainer/ImageContainer";
 import SectionTitle from "../../shared/SectionTitle/SectionTitle";
-import Section from "../Section/Sections";
+import Section from '../../shared/Section/Section';
 import Button from '../../shared/Button/Button';
 import styles from './FeaturedSection.module.css';
 

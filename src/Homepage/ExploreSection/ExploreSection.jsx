@@ -1,6 +1,6 @@
 import Article from '../../shared/Article/Article';
 import SectionTitle from '../../shared/SectionTitle/SectionTitle';
-import Section from '../Section/Sections';
+import Section from '../../shared/Section/Section';
 import Button from '../../shared/Button/Button';
 import styles from './ExploreSection.module.css';
 

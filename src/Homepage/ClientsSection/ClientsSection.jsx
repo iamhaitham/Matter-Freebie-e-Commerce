@@ -1,5 +1,5 @@
 import SectionTitle from '../../shared/SectionTitle/SectionTitle';
-import Section from '../Section/Sections';
+import Section from '../../shared/Section/Section';
 import Image from '../../shared/Image/Image';
 
 function ClientsSection() {

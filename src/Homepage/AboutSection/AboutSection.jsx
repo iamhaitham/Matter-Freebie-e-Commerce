@@ -1,6 +1,6 @@
 import Image from "../../shared/Image/Image";
 import SectionTitle from "../../shared/SectionTitle/SectionTitle";
-import Section from "../Section/Sections";
+import Section from '../../shared/Section/Section';
 import UnorderedList from "../../shared/UnorderedList/UnorderedList";
 import UnorderedListItem from "../../shared/UnorderedList/UnorderedListItem/UnorderedListItem";
 import styles from './AboutSection.module.css';
