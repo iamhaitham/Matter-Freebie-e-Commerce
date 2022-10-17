@@ -1,5 +1,5 @@
 function Image(props) {
-    const { id, src, alt, imageCss, children } = props;
+    const { id, src, alt, imageCss, children, handleClick } = props;
 
     function getImageCss() {
         if (imageCss) {
@@ -15,7 +15,9 @@ function Image(props) {
 
     return (
         <div data-id={ getId() } className={ getImageCss() }>
-            <img src={ src } alt={ alt }/>
+            <img src={ src } 
+                 alt={ alt } 
+                 onClick={ handleClick ? (e) => handleClick(e) : undefined }/>
             { children }
         </div>
     );

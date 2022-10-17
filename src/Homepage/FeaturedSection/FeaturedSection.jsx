@@ -5,32 +5,274 @@ import SectionTitle from "../../shared/SectionTitle/SectionTitle";
 import Section from '../../shared/Section/Section';
 import Button from '../../shared/Button/Button';
 import styles from './FeaturedSection.module.css';
+import QuickView from "../../QuickView/QuickView";
 
 function FeaturedSection() {
-    const { buttonStyles, featuredHoveredImagesStyles, featuredSecitonStyles } = styles;
+    const featuredEntities = [
+        { 
+            id: 1, 
+            isNew: true, 
+            description: 'Pueraria Mirifica And Study Phyto Estrogens 1', 
+            src: '/images/featured-7.png', 
+            alt: 'featured-1', 
+            price: '599.00', 
+            miniImages: [
+                { 
+                    id: 1, 
+                    src: '/images/minis-1.png', 
+                    alt: 'Mini 1' 
+                }, { 
+                    id: 2,
+                    src: '/images/minis-2.png', 
+                    alt: 'Mini 2' 
+                }, { 
+                    id: 3, 
+                    src: '/images/minis-3.png', 
+                    alt: 'Mini 3' 
+                }, { 
+                    id: 4, 
+                    src: '/images/minis-4.png', 
+                    alt: 'Mini 4' 
+                }, { 
+                    id: 5, 
+                    src: '/images/minis-2.png',
+                    alt: 'Mini 5' 
+                }
+            ]
+        }, { 
+            id: 2, 
+            isNew: true, 
+            description: 'Pueraria Mirifica And Study Phyto Estrogens 2', 
+            src: '/images/featured-2.png', 
+            alt: 'featured-2', 
+            price: '599.00', 
+            miniImages: [
+                { 
+                    id: 1, 
+                    src: '/images/minis-1.png', 
+                    alt: 'Mini 1' 
+                }, { 
+                    id: 2,
+                    src: '/images/minis-2.png', 
+                    alt: 'Mini 2' 
+                }, { 
+                    id: 3, 
+                    src: '/images/minis-3.png', 
+                    alt: 'Mini 3' 
+                }, { 
+                    id: 4, 
+                    src: '/images/minis-4.png', 
+                    alt: 'Mini 4' 
+                }, { 
+                    id: 5, 
+                    src: '/images/minis-2.png',
+                    alt: 'Mini 5' 
+                }
+            ]
+        }, { 
+            id: 3, 
+            isNew: true, 
+            description: 'Pueraria Mirifica And Study Phyto Estrogens 3', 
+            src: '/images/featured-8.png', 
+            alt: 'featured-3', 
+            price: '599.00', 
+            miniImages: [
+                { 
+                    id: 1, 
+                    src: '/images/minis-1.png', 
+                    alt: 'Mini 1' 
+                }, { 
+                    id: 2,
+                    src: '/images/minis-2.png', 
+                    alt: 'Mini 2' 
+                }, { 
+                    id: 3, 
+                    src: '/images/minis-3.png', 
+                    alt: 'Mini 3' 
+                }, { 
+                    id: 4, 
+                    src: '/images/minis-4.png', 
+                    alt: 'Mini 4' 
+                }, { 
+                    id: 5, 
+                    src: '/images/minis-2.png',
+                    alt: 'Mini 5' 
+                }
+            ] 
+        }, { 
+            id: 4, 
+            isNew: false, 
+            description: 'Pueraria Mirifica And Study Phyto Estrogens 4', 
+            src: '/images/featured-4.png', 
+            alt: 'featured-4', 
+            price: '599.00', 
+            miniImages: [
+                { 
+                    id: 1, 
+                    src: '/images/minis-1.png', 
+                    alt: 'Mini 1' 
+                }, { 
+                    id: 2,
+                    src: '/images/minis-2.png', 
+                    alt: 'Mini 2' 
+                }, { 
+                    id: 3, 
+                    src: '/images/minis-3.png', 
+                    alt: 'Mini 3' 
+                }, { 
+                    id: 4, 
+                    src: '/images/minis-4.png', 
+                    alt: 'Mini 4' 
+                }, { 
+                    id: 5, 
+                    src: '/images/minis-2.png',
+                    alt: 'Mini 5' 
+                }
+            ] 
+        }, { 
+            id: 5, 
+            isNew: true, 
+            description: 'Pueraria Mirifica And Study Phyto Estrogens 5', 
+            src: '/images/featured-5.png', 
+            alt: 'featured-5', 
+            price: '599.00', 
+            miniImages: [
+                { 
+                    id: 1, 
+                    src: '/images/minis-1.png', 
+                    alt: 'Mini 1' 
+                }, { 
+                    id: 2,
+                    src: '/images/minis-2.png', 
+                    alt: 'Mini 2' 
+                }, { 
+                    id: 3, 
+                    src: '/images/minis-3.png', 
+                    alt: 'Mini 3' 
+                }, { 
+                    id: 4, 
+                    src: '/images/minis-4.png', 
+                    alt: 'Mini 4' 
+                }, { 
+                    id: 5, 
+                    src: '/images/minis-2.png',
+                    alt: 'Mini 5' 
+                }
+            ] 
+        }, { 
+            id: 6, 
+            isNew: false, 
+            description: 'Pueraria Mirifica And Study Phyto Estrogens 6', 
+            src: '/images/featured-6.png', 
+            alt: 'featured-6', 
+            price: '599.00', 
+            miniImages: [
+                { 
+                    id: 1, 
+                    src: '/images/minis-1.png', 
+                    alt: 'Mini 1' 
+                }, { 
+                    id: 2,
+                    src: '/images/minis-2.png', 
+                    alt: 'Mini 2' 
+                }, { 
+                    id: 3, 
+                    src: '/images/minis-3.png', 
+                    alt: 'Mini 3' 
+                }, { 
+                    id: 4, 
+                    src: '/images/minis-4.png', 
+                    alt: 'Mini 4' 
+                }, { 
+                    id: 5, 
+                    src: '/images/minis-2.png',
+                    alt: 'Mini 5' 
+                }
+            ] 
+        }, { 
+            id: 7, 
+            isNew: true, 
+            description: 'Pueraria Mirifica And Study Phyto Estrogens 7', 
+            src: '/images/featured-7.png', 
+            alt: 'featured-7', 
+            price: '599.00', 
+            miniImages: [
+                { 
+                    id: 1, 
+                    src: '/images/minis-1.png', 
+                    alt: 'Mini 1' 
+                }, { 
+                    id: 2,
+                    src: '/images/minis-2.png', 
+                    alt: 'Mini 2' 
+                }, { 
+                    id: 3, 
+                    src: '/images/minis-3.png', 
+                    alt: 'Mini 3' 
+                }, { 
+                    id: 4, 
+                    src: '/images/minis-4.png', 
+                    alt: 'Mini 4' 
+                }, { 
+                    id: 5, 
+                    src: '/images/minis-2.png',
+                    alt: 'Mini 5' 
+                }
+            ] 
+        }, { 
+            id: 8, 
+            isNew: false, 
+            description: 'Pueraria Mirifica And Study Phyto Estrogens 8', 
+            src: '/images/featured-8.png', 
+            alt: 'featured-8', 
+            price: '599.00', 
+            miniImages: [
+                { 
+                    id: 1, 
+                    src: '/images/minis-1.png', 
+                    alt: 'Mini 1' 
+                }, { 
+                    id: 2,
+                    src: '/images/minis-2.png', 
+                    alt: 'Mini 2' 
+                }, { 
+                    id: 3, 
+                    src: '/images/minis-3.png', 
+                    alt: 'Mini 3' 
+                }, { 
+                    id: 4, 
+                    src: '/images/minis-4.png', 
+                    alt: 'Mini 4' 
+                }, { 
+                    id: 5, 
+                    src: '/images/minis-2.png',
+                    alt: 'Mini 5' 
+                }
+            ] 
+        }
+    ];
+
+    const { buttonStyles, featuredHoveredImagesStyles, featuredSecitonStyles, quickViewStyles } = styles;
     const buttonCss = `bg-mid-grey grey-text ${ buttonStyles }`;
-    const [quickView, setQuickView] = useState({ id: 0, isQuickView: false });
+    const [quickViewButton, setQuickViewButton] = useState({ id: 0, isQuickView: false });
+    const [quickViewItem, setQuickViewItem] = useState({});
+    const [miniImage, setMiniImage] = useState(featuredEntities[0].miniImages[0]);
 
     const featuredsectionTitle = 'Featured';
     const { imageStyles, imageContainerStyles } = styles;
 
-    const featuredEntities = [
-        { id: 1, isNew: true, description: 'Pueraria Mirifica And Study Phyto Estrogens', src: '/images/featured-7.png', alt: 'featured-1', price: '599.00' },
-        { id: 2, isNew: true, description: 'Pueraria Mirifica And Study Phyto Estrogens', src: '/images/featured-2.png', alt: 'featured-2', price: '599.00' },
-        { id: 3, isNew: true, description: 'Pueraria Mirifica And Study Phyto Estrogens', src: '/images/featured-8.png', alt: 'featured-3', price: '599.00' },
-        { id: 4, isNew: false, description: 'Pueraria Mirifica And Study Phyto Estrogens', src: '/images/featured-4.png', alt: 'featured-4', price: '599.00' },
-        { id: 5, isNew: true, description: 'Pueraria Mirifica And Study Phyto Estrogens', src: '/images/featured-5.png', alt: 'featured-5', price: '599.00' },
-        { id: 6, isNew: false, description: 'Pueraria Mirifica And Study Phyto Estrogens', src: '/images/featured-6.png', alt: 'featured-6', price: '599.00' },
-        { id: 7, isNew: true, description: 'Pueraria Mirifica And Study Phyto Estrogens', src: '/images/featured-7.png', alt: 'featured-7', price: '599.00' },
-        { id: 8, isNew: false, description: 'Pueraria Mirifica And Study Phyto Estrogens', src: '/images/featured-8.png', alt: 'featured-8', price: '599.00' }
-    ];
+    
 
     function handleMouseOver(e, id) {
-        setQuickView({ id, isQuickView: true });
+        setQuickViewButton({ id, isQuickView: true });
     }
 
     function handleMouseOut(e, id) {
-        setQuickView({ id, isQuickView: false });
+        setQuickViewButton({ id, isQuickView: false });
+    }
+
+    function handleMiniImageClick(e, entityId, miniImageId) {
+        setMiniImage(featuredEntities[entityId - 1].miniImages[miniImageId - 1]);
     }
 
     function showDescriptionAndPrice(description, price) {
@@ -42,10 +284,42 @@ function FeaturedSection() {
         );
     }
 
-    function isButtonVisible(id) {
-        if (quickView.id === id && quickView.isQuickView) {
+    function onQuickView(e, id) {
+        setQuickViewItem(featuredEntities[id - 1]);
+    }
+
+    function shouldOpenQuickView() {
+        if (!!quickViewItem.id) {
             return (
-                <Button content='QUICK VIEW' customButtonCss={ buttonCss }/>
+                <QuickView customCss={ quickViewStyles }
+                           entity={ quickViewItem } 
+                           onCloseClick={ handleCloseClick }
+                           onMiniImageClick={ handleMiniImageClick }
+                           defaultMiniImage={ miniImage }/>
+            );
+        } else {
+            return (
+                <Section customCss={ featuredSecitonStyles }>
+                    <SectionTitle content={ featuredsectionTitle }/>
+                    <ImageContainer customCss={ imageContainerStyles }>
+                        { featuredItems }
+                    </ImageContainer>
+                </Section>
+            );
+        }
+    }
+
+    function handleCloseClick() {
+        setQuickViewItem({});
+    }
+
+    function isButtonVisible(id) {
+        if (quickViewButton.id === id && quickViewButton.isQuickView) {
+            return (
+                <Button id={ id }
+                        content='QUICK VIEW' 
+                        customButtonCss={ buttonCss }
+                        handleClick={ onQuickView }/>
             );
         };
     }
@@ -80,12 +354,9 @@ function FeaturedSection() {
     });
 
     return (
-        <Section customCss={ featuredSecitonStyles }>
-            <SectionTitle content={ featuredsectionTitle }/>
-            <ImageContainer customCss={ imageContainerStyles }>
-                { featuredItems }
-            </ImageContainer>
-        </Section>
+        <>
+            { shouldOpenQuickView() }
+        </>
     );
 }
 

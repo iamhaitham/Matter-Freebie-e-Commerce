@@ -1,0 +1,19 @@
+.miniImageStyles > img {
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+}
+
+.miniImageStyles > img:hover {
+    cursor: pointer;
+    border: 1px solid #FF6008;
+}
+
+.activeMiniImageStyles > img {
+    border: 1px solid #FF6008;
+}
+
+.imageContainerStyles {
+    flex-direction: column;
+}

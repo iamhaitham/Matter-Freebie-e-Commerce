@@ -1,7 +1,7 @@
 import styles from './Button.module.css';
 
 function Button(props) {
-    const { customButtonCss, content } = props; 
+    const { customButtonCss, content, handleClick, id } = props; 
     const { buttonStyles } = styles;
 
     function getButtonCss(){
@@ -11,7 +11,8 @@ function Button(props) {
     }
 
     return(
-        <button className={ getButtonCss() }>{ content }</button>
+        <button className={ getButtonCss() }
+                onClick={ handleClick ? (e) => handleClick(e, id) : undefined }>{ content }</button>
     );
 }
 

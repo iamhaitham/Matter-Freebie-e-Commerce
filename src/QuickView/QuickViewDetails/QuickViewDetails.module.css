@@ -1,0 +1,100 @@
+.quickViewDetailsStyles {
+    margin-left: 2rem;
+}
+
+.titleStyles {
+    opacity: 1;
+    color: rgba(3,3,3,1);
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.priceStyles {
+    opacity: 1;
+    color: rgba(255,96,8,1);
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.rowStyles {
+    justify-content: space-between;
+    border-bottom: 1px solid #F9F8F6;
+}
+
+.rowStyles > p:nth-of-type(1) {
+    opacity: 1;
+    color: rgba(0,0,0,1);
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.rowStyles > p:nth-of-type(2)  {
+    opacity: 1;
+    color: rgba(102,102,102,1);
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0px;
+    text-align: justified;
+    line-height: 30px;
+}
+
+.sizeStyles,
+.selectedSizeStyles {
+    border: 1px solid #F3F3F3;
+    color: #515356;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 0.25rem;
+}
+
+.selectedSizeStyles {
+    background-color: #F3F3F3;
+}
+
+.sizesWrapperStyles {
+    display: flex;
+    justify-content: space-between;
+    width: 17rem;
+}
+
+.noteStyles {
+    opacity: 1;
+    color: rgba(102,102,102,1);
+    font-family: "ProximaNova-Regular";
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0px;
+    text-align: left;
+    line-height: 25px;
+}
+
+.addToWatchListStyles {
+    background-color: white;
+    border: transparent;
+    border-bottom: 1px solid #33333A;
+    padding: 1rem 0;   
+}
+
+.addToCartStyles {
+    background-color: #33333A;
+    color: #FFFFFF;
+    border: transparent;
+    padding: 1rem 3rem;
+}
