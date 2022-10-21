@@ -14,7 +14,7 @@ function QuickView({ entity, onCloseClick, onMiniImageClick, defaultMiniImage, c
         <div className={ quickViewWrapperStyles }>
             <div className={ customCss }>
                 <QuickViewHeader title={ description }
-                                handleCloseClick={ onCloseClick }/>
+                                 handleCloseClick={ onCloseClick }/>
                 <div className='flex'>
                     <QuickViewMinis entityId={ id }
                                     minis={ miniImages }
