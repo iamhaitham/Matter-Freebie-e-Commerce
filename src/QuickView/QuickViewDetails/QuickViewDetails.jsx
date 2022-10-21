@@ -4,6 +4,7 @@ import styles from './QuickViewDetails.module.css';
 import QuickViewDetailsRow from './QuickViewDetailsRow/QuickViewDetailsRow';
 import Button from '../../shared/Button/Button';
 import Counter from '../../shared/Counter/Counter';
+import StarContainer from '../../shared/Star/StarContainer/StarContainer';
 
 function QuickViewDetails({ title, price }) {
     const [selectedSize, setSelectedSize] = useState({});
@@ -81,9 +82,9 @@ function QuickViewDetails({ title, price }) {
     <div className={ quickViewDetailsStyles }>
         <h2 className={ titleStyles }>{ title }</h2>
         
-        <div>
+        <div className='flex align-items-center justify-content-space-between'>
             <p className={ priceStyles }>SGD { price }</p>
-            <p>RATING HERE</p>
+            <StarContainer numberOfStars='5'/>
         </div>
         
         { detailsRows }
