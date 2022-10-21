@@ -1,0 +1,12 @@
+.starContainerStyles {
+    display: flex;
+    align-items: center;
+}
+
+.starContainerStyles > span:last-child {
+    margin-left: 0.7rem;
+    color: rgba(102,102,102,1);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 10px;
+}
