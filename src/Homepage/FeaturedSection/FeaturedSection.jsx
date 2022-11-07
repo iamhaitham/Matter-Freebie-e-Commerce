@@ -261,8 +261,6 @@ function FeaturedSection() {
     const featuredsectionTitle = 'Featured';
     const { imageStyles, imageContainerStyles } = styles;
 
-    
-
     function handleMouseOver(e, id) {
         setQuickViewButton({ id, isQuickView: true });
     }
