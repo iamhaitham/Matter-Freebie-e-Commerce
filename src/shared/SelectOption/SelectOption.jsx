@@ -4,7 +4,7 @@ import Select from '@mui/material/Select';
 import { useState } from 'react';
 
 function SelectOption({ optionsEntities }) {
-    const [selectedOption, setSelectedOption] =  useState(optionsEntities[0]);
+    const [selectedOption, setSelectedOption] =  useState(optionsEntities[0].optionName);
 
     const options = optionsEntities.map(entity => {
         const { id, optionName } = entity;
@@ -22,7 +22,7 @@ function SelectOption({ optionsEntities }) {
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
             <Select id="demo-select-small"
                     onChange={ handleSelectionChange }
-                    value={ selectedOption.optionName }>
+                    value={ selectedOption }>
                 { options }
             </Select>
         </FormControl>
