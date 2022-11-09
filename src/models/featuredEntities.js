@@ -35,7 +35,7 @@ const featuredEntities = [
         description: 'Pueraria Mirifica And Study Phyto Estrogens 2', 
         src: '/images/featured-2.png', 
         alt: 'featured-2', 
-        price: '599.00', 
+        price: '499.00', 
         miniImages: [
             { 
                 id: 1, 
@@ -65,7 +65,7 @@ const featuredEntities = [
         description: 'Pueraria Mirifica And Study Phyto Estrogens 3', 
         src: '/images/featured-8.png', 
         alt: 'featured-3', 
-        price: '599.00', 
+        price: '399.00', 
         miniImages: [
             { 
                 id: 1, 
@@ -95,7 +95,7 @@ const featuredEntities = [
         description: 'Pueraria Mirifica And Study Phyto Estrogens 4', 
         src: '/images/featured-4.png', 
         alt: 'featured-4', 
-        price: '599.00', 
+        price: '299.00', 
         miniImages: [
             { 
                 id: 1, 
@@ -125,7 +125,7 @@ const featuredEntities = [
         description: 'Pueraria Mirifica And Study Phyto Estrogens 5', 
         src: '/images/featured-5.png', 
         alt: 'featured-5', 
-        price: '599.00', 
+        price: '199.00', 
         miniImages: [
             { 
                 id: 1, 
@@ -155,7 +155,7 @@ const featuredEntities = [
         description: 'Pueraria Mirifica And Study Phyto Estrogens 6', 
         src: '/images/featured-6.png', 
         alt: 'featured-6', 
-        price: '599.00', 
+        price: '99.00', 
         miniImages: [
             { 
                 id: 1, 
@@ -185,7 +185,7 @@ const featuredEntities = [
         description: 'Pueraria Mirifica And Study Phyto Estrogens 7', 
         src: '/images/featured-7.png', 
         alt: 'featured-7', 
-        price: '599.00', 
+        price: '799.00', 
         miniImages: [
             { 
                 id: 1, 
@@ -215,7 +215,7 @@ const featuredEntities = [
         description: 'Pueraria Mirifica And Study Phyto Estrogens 8', 
         src: '/images/featured-8.png', 
         alt: 'featured-8', 
-        price: '599.00', 
+        price: '899.00', 
         miniImages: [
             { 
                 id: 1, 
