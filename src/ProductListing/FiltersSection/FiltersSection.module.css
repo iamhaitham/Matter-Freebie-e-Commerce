@@ -1,0 +1,18 @@
+.filtersButtonsStyles {
+    padding: 0.5rem;
+    width: 8rem;
+    border: none;
+    transition-property: none;
+    background-color: white;
+}
+
+.filtersButtonsStyles:active {
+    box-shadow: none !important;
+}
+
+.buttonWrapperStyles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
