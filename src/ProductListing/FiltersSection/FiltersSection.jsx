@@ -4,9 +4,35 @@ import filtersEntities from '../../models/filtersEntities';
 import Button from '../../shared/Button/Button';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import styles from './FiltersSection.module.css';
+import sizesEntities from "../../models/sizesEntities";
+import Size from "../../shared/Size/Size";
+import { useState } from "react";
 
 function FiltersSection({ handleSubFilter }) {
-    const { filtersButtonsStyles, buttonWrapperStyles } = styles;
+    const { 
+        filtersButtonsStyles, 
+        buttonWrapperStyles, 
+        selectedSizeStyles,
+        sizeStyles,
+        sizesWrapperStyles
+    } = styles;
+    const [selectedSize, setSelectedSize] = useState({});
+
+    function handleSizeClick(e, id) {
+        setSelectedSize(sizesEntities[id - 1]);
+    }
+
+    const sizes = sizesEntities.map(entity => {
+        const { id, size } = entity;
+        
+        return (
+            <Size key={ id }
+                  id={ id } 
+                  sizeCustomCss={ id === selectedSize.id ? selectedSizeStyles : sizeStyles }
+                  size={ size }
+                  handleClick={ handleSizeClick }/>
+        );
+    });
 
     const accordion = filtersEntities.map(entity =>  {
         const { name, subFilters } = entity;
@@ -48,6 +74,14 @@ function FiltersSection({ handleSubFilter }) {
     return (
         <div className='flex-column'>
             { accordion }
+
+            <p>SIZE</p>
+            <div className='flex-column  justify-content-space-between'>
+                <div className={ sizesWrapperStyles }>
+                    { sizes }
+                </div>
+                <p>SEE OUT SIZING GUIDE</p>
+            </div>
         </div>
     );
 }
