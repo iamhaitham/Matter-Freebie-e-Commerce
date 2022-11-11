@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import featuredEntities from '../models/featuredEntities';
 import CurrentListingSection from './CurrentListingSection/CurrentListingSection';
+import FiltersSection from './FiltersSection/FiltersSection';
 import ProductListingSortBySection from './ProductListingSortBySection/ProductListingSortBySection';
 import ProductsListingRightSection from './ProductsListingRightSection/ProductsListingRightSection';
 
@@ -21,13 +22,21 @@ function ProductListing() {
         }
     }
 
+    const handleSubFilter = (e, subFilterName) => {
+        const filteredEntitiesBySubFilter = featuredEntities.filter(entity => entity.category === subFilterName);
+        setSortedEntities(filteredEntitiesBySubFilter);
+    }
+
     return (
         <>
             <CurrentListingSection currentListingTitle='Apparel'/>
             <ProductListingSortBySection optionsEntities={ optionsEntities }
                                          selectedOption={ selectedOption } 
                                          handleSelectionChange={ handleSelectionChange }/>
-            <ProductsListingRightSection entities={ sortedEntities }/>
+            <div className='flex'>
+                <FiltersSection handleSubFilter={ handleSubFilter }/>
+                <ProductsListingRightSection entities={ sortedEntities }/>
+            </div>
         </>
     );
 }
