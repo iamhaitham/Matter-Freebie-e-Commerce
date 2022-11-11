@@ -1,3 +1,13 @@
+.filtersSectionStyles  {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainAccordionStyles {
+    margin-left: 10.5rem;
+    margin-right: 6rem;
+}
+
 .filtersButtonsStyles {
     padding: 0.5rem;
     width: 8rem;

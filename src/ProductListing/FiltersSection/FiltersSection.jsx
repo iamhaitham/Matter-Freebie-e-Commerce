@@ -14,7 +14,9 @@ function FiltersSection({ handleSubFilter }) {
         buttonWrapperStyles, 
         selectedSizeStyles,
         sizeStyles,
-        sizesWrapperStyles
+        sizesWrapperStyles,
+        filtersSectionStyles,
+        mainAccordionStyles
     } = styles;
     const [selectedSize, setSelectedSize] = useState({});
 
@@ -72,15 +74,17 @@ function FiltersSection({ handleSubFilter }) {
     });
 
     return (
-        <div className='flex-column'>
-            { accordion }
+        <div className={ filtersSectionStyles }>
+            <div className={ mainAccordionStyles }>
+                { accordion }
 
-            <p>SIZE</p>
-            <div className='flex-column  justify-content-space-between'>
-                <div className={ sizesWrapperStyles }>
-                    { sizes }
+                <p>SIZE</p>
+                <div className='flex-column  justify-content-space-between'>
+                    <div className={ sizesWrapperStyles }>
+                        { sizes }
+                    </div>
+                    <p>SEE OUT SIZING GUIDE</p>
                 </div>
-                <p>SEE OUT SIZING GUIDE</p>
             </div>
         </div>
     );
