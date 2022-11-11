@@ -6,6 +6,7 @@ const featuredEntities = [
         src: '/images/featured-7.png', 
         alt: 'featured-1', 
         price: '599.00', 
+        category: 'PANTS',
         miniImages: [
             { 
                 id: 1, 
@@ -36,6 +37,7 @@ const featuredEntities = [
         src: '/images/featured-2.png', 
         alt: 'featured-2', 
         price: '499.00', 
+        category: 'PANTS',
         miniImages: [
             { 
                 id: 1, 
@@ -66,6 +68,7 @@ const featuredEntities = [
         src: '/images/featured-8.png', 
         alt: 'featured-3', 
         price: '399.00', 
+        category: 'JUMPSUITS',
         miniImages: [
             { 
                 id: 1, 
@@ -96,6 +99,7 @@ const featuredEntities = [
         src: '/images/featured-4.png', 
         alt: 'featured-4', 
         price: '299.00', 
+        category: 'SHORTS',
         miniImages: [
             { 
                 id: 1, 
@@ -126,6 +130,7 @@ const featuredEntities = [
         src: '/images/featured-5.png', 
         alt: 'featured-5', 
         price: '199.00', 
+        category: 'SHORTS',
         miniImages: [
             { 
                 id: 1, 
@@ -156,6 +161,7 @@ const featuredEntities = [
         src: '/images/featured-6.png', 
         alt: 'featured-6', 
         price: '99.00', 
+        category: 'JUMPSUITS',
         miniImages: [
             { 
                 id: 1, 
@@ -186,6 +192,7 @@ const featuredEntities = [
         src: '/images/featured-7.png', 
         alt: 'featured-7', 
         price: '799.00', 
+        category: 'TOPS',
         miniImages: [
             { 
                 id: 1, 
@@ -216,6 +223,7 @@ const featuredEntities = [
         src: '/images/featured-8.png', 
         alt: 'featured-8', 
         price: '899.00', 
+        category: 'TOPS',
         miniImages: [
             { 
                 id: 1, 
