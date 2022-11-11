@@ -5,6 +5,7 @@ import QuickViewDetailsRow from './QuickViewDetailsRow/QuickViewDetailsRow';
 import Button from '../../shared/Button/Button';
 import Counter from '../../shared/Counter/Counter';
 import StarContainer from '../../shared/Star/StarContainer/StarContainer';
+import sizesEntities from '../../models/sizesEntities';
 
 function QuickViewDetails({ title, price }) {
     const [selectedSize, setSelectedSize] = useState({});
@@ -26,13 +27,6 @@ function QuickViewDetails({ title, price }) {
         { id: 2, rowTitle: 'Artisan Employment', rowContent: '54 jobs' },
         { id: 3, rowTitle: 'Partnership', rowContent: 'Randall Armstrong' },
         { id: 4, rowTitle: 'In Collab', rowContent: 'Augusta Mendoza' }
-    ];
-
-    const sizesEntities = [
-        { id: 1, size: 1 },
-        { id: 2, size: 2 },
-        { id: 3, size: 3 },
-        { id: 4, size: 4 }
     ];
 
     function getRowStyles(id) {
