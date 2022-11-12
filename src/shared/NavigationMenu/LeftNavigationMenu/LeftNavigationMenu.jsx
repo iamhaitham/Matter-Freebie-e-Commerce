@@ -1,15 +1,18 @@
+import { useNavigate } from 'react-router';
+import leftMenuItemsEntities from '../../../models/leftMenuItemsEntities';
 import MenuItems from '../MenuItems/MenuItems';
 
 function LeftNavigationMenu() {
-    const leftMenuItemsEntity = [
-        { id: 1, name: 'SHOP', isArrowIncluded: true },
-        { id: 2, name: 'FABRIC', isArrowIncluded: true },
-        { id: 3, name: 'JOURNAL', isArrowIncluded: true },
-        { id: 4, name: 'ABOUT', isArrowIncluded: true }
-    ];
+    const navigate = useNavigate();
+
+    const handleMenuItemClick = (e, id) => {
+        const item = leftMenuItemsEntities.find(entity => entity.id === id);
+        navigate(`${item.name.toLowerCase()}`);
+    }
 
     return (
-        <MenuItems entities={ leftMenuItemsEntity }/>
+        <MenuItems entities={ leftMenuItemsEntities }
+                   handleMenuItemClick={ handleMenuItemClick }/>
     );
 }
 
