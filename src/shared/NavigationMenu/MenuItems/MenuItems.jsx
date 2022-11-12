@@ -1,15 +1,21 @@
 import MenuItem from './MenuItem/MenuItem';
 import styles from './MenuItems.module.css';
 
-function MenuItems(props) {
+function MenuItems({ 
+    entities, 
+    handleMenuItemClick 
+}) {
     const listWrapper = `flex ${ styles.listWrapper }`;
 
-    const { entities } = props;
     const items = entities.map(entity => {
         const { id, name, isArrowIncluded } = entity;
 
         return (
-            <MenuItem key={ id } name={ name } isArrowIncluded={ isArrowIncluded }/>
+            <MenuItem key={ id } 
+                      id={ id }
+                      name={ name } 
+                      isArrowIncluded={ isArrowIncluded }
+                      handleMenuItemClick={ handleMenuItemClick }/>
         );
     });
 
