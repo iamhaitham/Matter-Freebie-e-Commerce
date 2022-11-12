@@ -9,7 +9,7 @@ function AppRoutes() {
             <Routes>
                 <Route element={ <Layout/> }>
                     <Route index element={ <Homepage/> }/>
-                    <Route path='productslisting' element={ <ProductListing/> }/>
+                    <Route path='shop' element={ <ProductListing/> }/>
                 </Route>
             </Routes>
         </BrowserRouter>
