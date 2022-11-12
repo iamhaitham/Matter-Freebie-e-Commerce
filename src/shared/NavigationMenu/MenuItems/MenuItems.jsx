@@ -3,7 +3,9 @@ import styles from './MenuItems.module.css';
 
 function MenuItems({ 
     entities, 
-    handleMenuItemClick 
+    handleMenuItemClick,
+    activeMenuItemId,
+    setActiveMenuItemId
 }) {
     const listWrapper = `flex ${ styles.listWrapper }`;
 
@@ -15,7 +17,9 @@ function MenuItems({
                       id={ id }
                       name={ name } 
                       isArrowIncluded={ isArrowIncluded }
-                      handleMenuItemClick={ handleMenuItemClick }/>
+                      handleMenuItemClick={ handleMenuItemClick }
+                      activeMenuItemId={ activeMenuItemId }
+                      setActiveMenuItemId={ setActiveMenuItemId }/>
         );
     });
 

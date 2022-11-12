@@ -11,6 +11,7 @@
     line-height: 40px;
     text-transform: uppercase;
     margin: 0 1rem;
+    user-select: none;
 }
 
 .listItemWithArrow::after {
@@ -22,5 +23,9 @@
 .listItemWithArrow:hover,
 .listItemWithoutArrow:hover {
     cursor: pointer;
+}
+
+.activeMenuItem {
+    color: #FF5E1B;
 }
 

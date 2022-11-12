@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import leftMenuItemsEntities from '../../../models/leftMenuItemsEntities';
 import MenuItems from '../MenuItems/MenuItems';
 
 function LeftNavigationMenu() {
     const navigate = useNavigate();
+    const [activeMenuItemId, setActiveMenuItemId] = useState();
 
     const handleMenuItemClick = (e, id) => {
         const item = leftMenuItemsEntities.find(entity => entity.id === id);
@@ -12,7 +14,9 @@ function LeftNavigationMenu() {
 
     return (
         <MenuItems entities={ leftMenuItemsEntities }
-                   handleMenuItemClick={ handleMenuItemClick }/>
+                   handleMenuItemClick={ handleMenuItemClick }
+                   activeMenuItemId={ activeMenuItemId }
+                   setActiveMenuItemId={ setActiveMenuItemId }/>
     );
 }
 
