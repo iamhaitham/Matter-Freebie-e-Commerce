@@ -15,7 +15,8 @@ function FiltersSection({ handleSubFilter }) {
         sizeStyles,
         sizesWrapperStyles,
         filtersSectionStyles,
-        mainAccordionStyles
+        mainAccordionStyles,
+        resetButtonStyles
     } = styles;
     const [selectedSize, setSelectedSize] = useState({});
 
@@ -44,7 +45,7 @@ function FiltersSection({ handleSubFilter }) {
             return (
                 <div key={ subName } className='flex-column'>
                     <div className={ buttonWrapperStyles }
-                            onClick={ (e) => handleSubFilter(e, subName) }>
+                         onClick={ (e) => handleSubFilter(e, subName) }>
                         <ArrowForwardIosIcon fontSize='50px'/>
                         <Button id={ subName }
                                 content={ subName }
@@ -75,10 +76,16 @@ function FiltersSection({ handleSubFilter }) {
     return (
         <div className={ filtersSectionStyles }>
             <div className={ mainAccordionStyles }>
+                <div>
+                    <p>FILTERS</p>
+                    <Button content='RESET'
+                            customButtonCss={ resetButtonStyles }/>
+                </div>
+
                 { accordion }
 
                 <p>SIZE</p>
-                <div className='flex-column  justify-content-space-between'>
+                <div className='flex-column justify-content-space-between'>
                     <div className={ sizesWrapperStyles }>
                         { sizes }
                     </div>
