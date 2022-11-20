@@ -6,10 +6,15 @@ import Button from '../../shared/Button/Button';
 import Counter from '../../shared/Counter/Counter';
 import StarContainer from '../../shared/Star/StarContainer/StarContainer';
 import { detailsRowsEntities, sizesEntities } from '../../models';
+import useLocalStorageState from 'use-local-storage-state'
 
-function QuickViewDetails({ title, price }) {
+function QuickViewDetails({ featuredEntity }) {
     const [selectedSize, setSelectedSize] = useState({});
     const [counter, setCounter] = useState(1);
+    const [cartItems, setCartItems] = useLocalStorageState('cartItems', {
+        defaultValue: []
+    });
+
     const { quickViewDetailsStyles, 
             titleStyles, 
             priceStyles, 
@@ -42,6 +47,21 @@ function QuickViewDetails({ title, price }) {
         }
     }
 
+    function addToCart() {
+        const cartItem = cartItems.find(item => item.itemId === featuredEntity.id);
+
+        if (cartItem)
+            setCartItems([...cartItems.filter(item => item.itemId !== cartItem.itemId), {
+                itemId: featuredEntity.id,
+                quantity: counter
+            }]);
+        else
+            setCartItems([...cartItems, {
+                itemId: featuredEntity.id,
+                quantity: counter
+            }]);
+    }
+
     const detailsRows = detailsRowsEntities.map(entity => {
         const { id, rowTitle, rowContent } = entity;
 
@@ -67,10 +87,10 @@ function QuickViewDetails({ title, price }) {
 
     return (
     <div className={ quickViewDetailsStyles }>
-        <h2 className={ titleStyles }>{ title }</h2>
+        <h2 className={ titleStyles }>{ featuredEntity.description }</h2>
         
         <div className='flex align-items-center justify-content-space-between'>
-            <p className={ priceStyles }>SGD { price }</p>
+            <p className={ priceStyles }>SGD { featuredEntity.price }</p>
             <StarContainer numberOfStars='5'/>
         </div>
         
@@ -91,7 +111,8 @@ function QuickViewDetails({ title, price }) {
                      handleDecreaseClick={ handleDecreaseClick }
                      count={ counter }/>
             <Button content='ADD TO CART'
-                    customButtonCss={ addToCartStyles }/>
+                    customButtonCss={ addToCartStyles }
+                    handleClick={ addToCart }/>
             <Button content='ADD TO WATCH LIST'
                     customButtonCss={ addToWatchListStyles }/>
         </div>
@@ -99,4 +120,4 @@ function QuickViewDetails({ title, price }) {
   )
 }
 
-export default QuickViewDetails
+export default QuickViewDetails;
