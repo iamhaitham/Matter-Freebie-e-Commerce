@@ -1,7 +1,11 @@
 import styles from './Button.module.css';
 
-function Button(props) {
-    const { customButtonCss, content, handleClick, id } = props; 
+function Button({ 
+    customButtonCss, 
+    content, 
+    handleClick, 
+    id 
+}) {
     const { buttonStyles } = styles;
 
     function getButtonCss(){
