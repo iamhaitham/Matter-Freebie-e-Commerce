@@ -10,8 +10,8 @@ function ProductListing() {
         { id: 0, optionName: 'CHOOSE' },
         { id: 1, optionName: 'PRICE' }
     ];
-    const [selectedOption, setSelectedOption] =  useState(optionsEntities[0].optionName);
-    const [sortedEntities, setSortedEntities] =  useState(featuredEntities);
+    const [selectedOption, setSelectedOption] = useState(optionsEntities[0].optionName);
+    const [sortedEntities, setSortedEntities] = useState(featuredEntities);
 
     const handleSelectionChange = (e) => {
         setSelectedOption(e.target.value);
