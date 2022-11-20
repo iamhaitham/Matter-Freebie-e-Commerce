@@ -5,10 +5,16 @@ import QuickViewDetails from './QuickViewDetails/QuickViewDetails';
 import styles from './QuickView.module.css';
 import Button from '../shared/Button/Button';
 
-function QuickView({ entity, onCloseClick, onMiniImageClick, defaultMiniImage, customCss }) {
+function QuickView({ 
+    entity, 
+    onCloseClick, 
+    onMiniImageClick, 
+    defaultMiniImage, 
+    customCss 
+}) {
     const { mainImageStyles, quickViewWrapperStyles, viewFullProductButtonStyles } = styles;
 
-    const { id, price, description, miniImages } = entity;
+    const { id, description, miniImages } = entity;
 
     return (
         <div className={ quickViewWrapperStyles }>
@@ -23,9 +29,7 @@ function QuickView({ entity, onCloseClick, onMiniImageClick, defaultMiniImage, c
                     <Image src={ defaultMiniImage.src } 
                            alt={ defaultMiniImage.alt } 
                            imageCss={ mainImageStyles }/>
-                    <QuickViewDetails title={ description }
-                                      description={ description }
-                                      price={ price }/>
+                    <QuickViewDetails featuredEntity={ entity }/>
                 </div>
                 <Button content='View Full product Details'
                         customButtonCss={ viewFullProductButtonStyles }/>
