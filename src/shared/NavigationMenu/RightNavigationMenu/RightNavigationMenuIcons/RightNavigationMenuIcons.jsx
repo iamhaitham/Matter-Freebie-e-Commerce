@@ -16,7 +16,7 @@ function RightNavigationMenuIcons() {
             return (
                 <Badge key={ id } 
                        badgeContent={ cartItems.length } 
-                       color="primary">
+                       color='primary'>
                     <Icon src={ src } alt={ alt } iconCss={ iconStyles }/>
                 </Badge>
             );
