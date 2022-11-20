@@ -20,11 +20,21 @@ function ProductListing() {
             const sortedArray = sortedEntities.sort((a, b) => +b.price - +a.price);
             setSortedEntities(sortedArray);
         }
+        else {
+            const unSortedArray = featuredEntities.sort((a, b) => +a.id - +b.id);
+            setSortedEntities(unSortedArray);
+        }
     }
 
     const handleSubFilter = (e, subFilterName) => {
         const filteredEntitiesBySubFilter = featuredEntities.filter(entity => entity.category === subFilterName);
         setSortedEntities(filteredEntitiesBySubFilter);
+    }
+
+    const resetFilters = () => {
+        const unSortedArray = featuredEntities.sort((a, b) => +a.id - +b.id);
+        setSelectedOption( optionsEntities[0].optionName);
+        setSortedEntities(unSortedArray);
     }
 
     return (
@@ -34,7 +44,8 @@ function ProductListing() {
                                          selectedOption={ selectedOption } 
                                          handleSelectionChange={ handleSelectionChange }/>
             <div className='flex'>
-                <FiltersSection handleSubFilter={ handleSubFilter }/>
+                <FiltersSection handleSubFilter={ handleSubFilter }
+                                resetFilters={ resetFilters }/>
                 <ProductsListingRightSection entities={ sortedEntities }/>
             </div>
         </>

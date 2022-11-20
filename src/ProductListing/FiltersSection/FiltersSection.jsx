@@ -7,7 +7,7 @@ import { sizesEntities, filtersEntities } from "../../models";
 import Size from "../../shared/Size/Size";
 import { useState } from "react";
 
-function FiltersSection({ handleSubFilter }) {
+function FiltersSection({ handleSubFilter, resetFilters }) {
     const { 
         filtersButtonsStyles, 
         buttonWrapperStyles, 
@@ -79,7 +79,8 @@ function FiltersSection({ handleSubFilter }) {
                 <div>
                     <p>FILTERS</p>
                     <Button content='RESET'
-                            customButtonCss={ resetButtonStyles }/>
+                            customButtonCss={ resetButtonStyles }
+                            handleClick={ resetFilters }/>
                 </div>
 
                 { accordion }
