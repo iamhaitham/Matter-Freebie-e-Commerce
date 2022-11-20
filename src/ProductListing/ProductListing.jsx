@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import featuredEntities from '../models/featuredEntities';
+import { featuredEntities } from '../models';
 import CurrentListingSection from './CurrentListingSection/CurrentListingSection';
 import FiltersSection from './FiltersSection/FiltersSection';
 import ProductListingSortBySection from './ProductListingSortBySection/ProductListingSortBySection';

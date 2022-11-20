@@ -6,7 +6,7 @@ import Section from '../../shared/Section/Section';
 import Button from '../../shared/Button/Button';
 import styles from './FeaturedSection.module.css';
 import QuickView from '../../QuickView/QuickView';
-import featuredEntities from '../../models/featuredEntities';
+import { featuredEntities } from '../../models';
 
 function FeaturedSection() {
     const { buttonStyles, featuredHoveredImagesStyles, featuredSecitonStyles, quickViewStyles } = styles;

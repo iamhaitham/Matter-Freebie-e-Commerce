@@ -1,4 +1,4 @@
-const featuredEntities = [
+export const featuredEntities = [
     { 
         id: 1, 
         isNew: true, 
@@ -249,5 +249,3 @@ const featuredEntities = [
         ] 
     }
 ];
-
-export default featuredEntities;

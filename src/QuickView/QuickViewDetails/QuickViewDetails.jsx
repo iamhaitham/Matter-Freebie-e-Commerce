@@ -5,8 +5,7 @@ import QuickViewDetailsRow from './QuickViewDetailsRow/QuickViewDetailsRow';
 import Button from '../../shared/Button/Button';
 import Counter from '../../shared/Counter/Counter';
 import StarContainer from '../../shared/Star/StarContainer/StarContainer';
-import sizesEntities from '../../models/sizesEntities';
-import detailsRowsEntities from '../../models/detailsRowsEntities';
+import { detailsRowsEntities, sizesEntities } from '../../models';
 
 function QuickViewDetails({ title, price }) {
     const [selectedSize, setSelectedSize] = useState({});

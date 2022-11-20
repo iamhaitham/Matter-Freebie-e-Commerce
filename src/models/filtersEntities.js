@@ -1,4 +1,4 @@
-const filtersEntities = [
+export const filtersEntities = [
     { id: 1, name: 'Apparels', subFilters: [
         { id: 1, name: 'PANTS' },
         { id: 1, name: 'JUMPSUITS' },
@@ -15,5 +15,3 @@ const filtersEntities = [
         { id: 1, name: 'NEUTRALS' }]
     }
 ];
-
-export default filtersEntities;
