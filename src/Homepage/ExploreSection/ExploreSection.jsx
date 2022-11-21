@@ -6,13 +6,26 @@ import styles from './ExploreSection.module.css';
 import { articlesEntities } from '../../entities';
 
 function ExploreSection() {
-    const { articlesWrapperStyle, articlesThirdColumnStyle, buttonStyles, exploreSectionStyles } = styles;
+    const { 
+        articlesWrapperStyle, 
+        articlesThirdColumnStyle, 
+        buttonStyles, 
+        exploreSectionStyles 
+    } = styles;
     const buttonCss = `bg-mid-grey grey-text ${ buttonStyles }`;
 
     const exploreSectionTitle = `Explore`;
     
     const articles = articlesEntities.map(entity => {
-        const { id, time, title, content, image, style, articleWidth } = entity;
+        const { 
+            id, 
+            time, 
+            title, 
+            content, 
+            image, 
+            style, 
+            articleWidth 
+        } = entity;
 
         return (
             <Article key={ id } 
