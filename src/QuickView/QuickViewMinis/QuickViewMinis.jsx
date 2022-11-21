@@ -2,11 +2,19 @@ import Image from '../../shared/Image/Image';
 import ImageContainer from '../../shared/ImageContainer/ImageContainer';
 import styles from './QuickViewMinis.module.css';
 
-function QuickViewMinis({ minis, handleMiniImageClick, entityId, defaultMiniImage }) {
-    const { miniImageStyles, activeMiniImageStyles, imageContainerStyles } = styles;
+function QuickViewMinis({ 
+    featuredEntity, 
+    handleMiniImageClick, 
+    defaultMiniImage 
+}) {
+    const { 
+        miniImageStyles, 
+        activeMiniImageStyles, 
+        imageContainerStyles 
+    } = styles;
 
     function onMiniImageClick(e, miniImageId) {
-        handleMiniImageClick(e, entityId, miniImageId);
+        handleMiniImageClick(e, miniImageId, miniImageId);
     }
 
     function getImageCss(id) {
@@ -15,8 +23,12 @@ function QuickViewMinis({ minis, handleMiniImageClick, entityId, defaultMiniImag
             : `${ miniImageStyles }`;
     }
 
-    const miniImages = minis.map(entity => {
-        const { id, src, alt } = entity;
+    const miniImages = featuredEntity.miniImages.map(entity => {
+        const { 
+            id, 
+            src, 
+            alt 
+        } = entity;
 
         return (
             <Image key={ id }

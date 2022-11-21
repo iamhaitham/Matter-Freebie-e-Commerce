@@ -49,14 +49,14 @@ function FeaturedSection() {
         });
     }
 
-    function handleQuickViewClick(e, id) {
+    function handleQuickViewClick(_, id) {
         dispatch({ 
             type: QuickView_Item_Chosen,
             quickViewItem: featuredEntities[id - 1]
         });
     }
 
-    function handleMiniImageClick(e, entityId, miniImageId) {
+    function handleMiniImageClick(_, entityId, miniImageId) {
         dispatch({
             type: QuickView_MiniImage_Chosen,
             miniImage: featuredEntities[entityId - 1].miniImages[miniImageId - 1]
@@ -98,7 +98,14 @@ function FeaturedSection() {
     }
 
     const featuredItems = featuredEntities.map(entity => {
-        const { id, src, alt, description, price, isNew } = entity;
+        const { 
+            id, 
+            src, 
+            alt, 
+            description, 
+            price, 
+            isNew 
+        } = entity;
 
         return (
             <div key={ id }

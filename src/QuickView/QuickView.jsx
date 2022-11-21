@@ -12,18 +12,19 @@ function QuickView({
     defaultMiniImage, 
     customCss 
 }) {
-    const { mainImageStyles, quickViewWrapperStyles, viewFullProductButtonStyles } = styles;
-
-    const { id, description, miniImages } = entity;
+    const { 
+        mainImageStyles, 
+        quickViewWrapperStyles, 
+        viewFullProductButtonStyles 
+    } = styles;
 
     return (
         <div className={ quickViewWrapperStyles }>
             <div className={ customCss }>
-                <QuickViewHeader title={ description }
+                <QuickViewHeader featuredEntity={ entity }
                                  handleCloseClick={ onCloseClick }/>
                 <div className='flex'>
-                    <QuickViewMinis entityId={ id }
-                                    minis={ miniImages }
+                    <QuickViewMinis featuredEntity={ entity }
                                     handleMiniImageClick={ onMiniImageClick }
                                     defaultMiniImage={ defaultMiniImage }/>
                     <Image src={ defaultMiniImage.src } 

@@ -1,7 +1,11 @@
 import Image from '../Image/Image';
 
-function Icon(props) {
-    const { src, alt, iconCss, handleClick } = props;
+function Icon({ 
+    src, 
+    alt, 
+    iconCss, 
+    handleClick 
+}) {
 
     return (
         <Image src={ src } 

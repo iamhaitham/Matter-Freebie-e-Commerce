@@ -1,5 +1,11 @@
-function Image(props) {
-    const { id, src, alt, imageCss, children, handleClick } = props;
+function Image({ 
+    id, 
+    src,
+    alt, 
+    imageCss, 
+    children, 
+    handleClick 
+}) {
 
     function getImageCss() {
         if (imageCss) {
