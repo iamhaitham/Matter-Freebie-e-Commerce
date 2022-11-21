@@ -16,11 +16,11 @@ function ShopSection() {
     const imageCss = `${ imageStyles }`;
     const buttonCss = `bg-mid-grey grey-text ${ buttonStyles }`;
 
-    function handleMouseOver(e, id) {
+    function handleMouseOver(_, id) {
         setShowShopNowButton({ id, show: true });
     }
 
-    function handleMouseOut(e, id) {
+    function handleMouseOut(_, id) {
         setShowShopNowButton({ id, show: false });
     }
 
@@ -29,7 +29,12 @@ function ShopSection() {
     }
 
     const shopPictures = shopEntities.map(entity => {
-        const { id, src, alt, description } = entity;
+        const { 
+            id, 
+            src, 
+            alt, 
+            description 
+        } = entity;
 
         return (
             <div key={ id }
