@@ -3,6 +3,6 @@ export * from './featuredEntities';
 export * from './filtersEntities';
 export * from './leftMenuItemsEntities';
 export * from './sizesEntities';
-export * from './iconsEntity';
+export * from './rightNavigationMenuIconsEntities';
 export * from './footerColumnsEntities';
 export * from './footerIconsEntities';

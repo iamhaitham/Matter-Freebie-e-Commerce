@@ -1,7 +1,7 @@
 import { Badge } from '@mui/material';
 import Icon from '../../../Icon/Icon';
 import styles from './RightNavigationMenuIcons.module.css';
-import { iconsEntity } from '../../../../models';
+import { rightNavigationMenuIconsEntities } from '../../../../models';
 import useLocalStorageState from 'use-local-storage-state'
 
 function RightNavigationMenuIcons() {
@@ -9,7 +9,7 @@ function RightNavigationMenuIcons() {
 
     const { iconStyles } = styles;
 
-    const icons = iconsEntity.map(entity => {
+    const icons = rightNavigationMenuIconsEntities.map(entity => {
         const { id, src, alt } = entity;
         
         if (id === 3 && cartItems && cartItems.length)
