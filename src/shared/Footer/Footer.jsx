@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import Icon from '../Icon/Icon';
 import styles from './Footer.module.css';
 import ImageContainer from "../ImageContainer/ImageContainer";
-import { footerColumnsEntities, footericonsEntities } from '../../models';
+import { footerColumnsEntities, footericonsEntities } from '../../entities';
 
 function Footer() {
     const { columnTitleSpan, inputStyles, buttonStyles, formStyles, iconStyles } = styles;

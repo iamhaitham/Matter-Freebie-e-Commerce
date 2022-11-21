@@ -5,7 +5,7 @@ import QuickViewDetailsRow from './QuickViewDetailsRow/QuickViewDetailsRow';
 import Button from '../../shared/Button/Button';
 import Counter from '../../shared/Counter/Counter';
 import StarContainer from '../../shared/Star/StarContainer/StarContainer';
-import { detailsRowsEntities, sizesEntities } from '../../models';
+import { detailsRowsEntities, sizesEntities } from '../../entities';
 import useLocalStorageState from 'use-local-storage-state'
 
 function QuickViewDetails({ featuredEntity }) {

@@ -3,7 +3,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '../../shared/Button/Button';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import styles from './FiltersSection.module.css';
-import { sizesEntities, filtersEntities } from "../../models";
+import { sizesEntities, filtersEntities } from "../../entities";
 import Size from "../../shared/Size/Size";
 import { useState } from "react";
 

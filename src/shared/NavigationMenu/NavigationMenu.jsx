@@ -4,7 +4,7 @@ import LeftNavigationMenu from './LeftNavigationMenu/LeftNavigationMenu';
 import RightNavigationMenu from './RightNavigationMenu/RightNavigationMenu';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { leftMenuItemsEntities } from '../../models';
+import { leftMenuItemsEntities } from '../../entities';
 
 function NavigationMenu() {
     const { navigationMenu, routerLinkStyles } = styles;
