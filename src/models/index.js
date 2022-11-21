@@ -4,5 +4,5 @@ export * from './filtersEntities';
 export * from './leftMenuItemsEntities';
 export * from './sizesEntities';
 export * from './iconsEntity';
-export * from './aboutUsColumnsEntities';
-export * from './aboutUsIconsEntities';
+export * from './footerColumnsEntities';
+export * from './footerIconsEntities';

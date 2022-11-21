@@ -1,4 +1,4 @@
-export const aboutUsiconsEntities = [
+export const footericonsEntities = [
     { id: 1, src: '/images/facebook-icon.png', alt: 'Facebook Icon' },
     { id: 2, src: '/images/twitter-icon.png', alt: 'Twitter Icon' }
 ];

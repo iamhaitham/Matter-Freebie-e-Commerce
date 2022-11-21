@@ -1,4 +1,4 @@
-export const aboutUsColumnsEntities = [
+export const footerColumnsEntities = [
     { entityId: 1, columnTitle: 'Categories', columnItems: 
         [
             { id: 1, item: 'About us' },

@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import Icon from '../Icon/Icon';
 import styles from './Footer.module.css';
 import ImageContainer from "../ImageContainer/ImageContainer";
-import { columnsWithLinksEntities, iconsEntities } from '../../models';
+import { footerColumnsEntities, footericonsEntities } from '../../models';
 
 function Footer() {
     const { columnTitleSpan, inputStyles, buttonStyles, formStyles, iconStyles } = styles;
@@ -15,7 +15,7 @@ function Footer() {
     const buttonCss = `mid-grey ${ buttonStyles }`;
     const iconCss = `${ iconStyles }`;
     
-    const columnsWithLinks = columnsWithLinksEntities.map(entity => {
+    const columnsWithLinks = footerColumnsEntities.map(entity => {
         const { entityId, columnTitle, columnItems } = entity;
 
         return (
@@ -23,7 +23,7 @@ function Footer() {
         );
     });
 
-    const icons = iconsEntities.map(entity => {
+    const icons = footericonsEntities.map(entity => {
         const { id, src, alt } = entity;
 
         return (
