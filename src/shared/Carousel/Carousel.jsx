@@ -4,7 +4,12 @@ import Image from '../Image/Image';
 import styles from './Carousel.module.css';
 
 function Carousel({ photos }) {
-    const { imageStyles, arrowStyles, carouselContainerStyles, shopNowButtonStyles } = styles;
+    const { 
+        imageStyles, 
+        arrowStyles, 
+        carouselContainerStyles, 
+        shopNowButtonStyles 
+    } = styles;
     const [carouselImage, setCarouselImage] = useState(photos[0]);
 
     function handleNext() {
@@ -31,10 +36,13 @@ function Carousel({ photos }) {
                        alt={ carouselImage.alt }
                        imageCss={ imageStyles }>
                         <h1>{ carouselImage.title }</h1>
-                        <Button content='SHOP NOW' customButtonCss={ shopNowButtonStyles }/>
+                        <Button content='SHOP NOW' 
+                                customButtonCss={ shopNowButtonStyles }/>
                 </Image>
-                <span className={ arrowStyles } onClick={ handleNext }>→</span>
-                <span className={ arrowStyles } onClick={ handlePrevious }>←</span>
+                <span className={ arrowStyles } 
+                      onClick={ handleNext }>→</span>
+                <span className={ arrowStyles } 
+                      onClick={ handlePrevious }>←</span>
             </div>
         </>
     );
