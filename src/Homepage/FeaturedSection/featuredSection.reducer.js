@@ -1,4 +1,4 @@
-import { featuredEntities } from '../entities';
+import { featuredEntities } from '../../entities';
 
 export const featuredSectionReducerInitialState = {
   miniImage: featuredEntities[0].miniImages[0],

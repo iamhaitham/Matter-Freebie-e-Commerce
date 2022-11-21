@@ -11,7 +11,7 @@ import {
     featuredSectionReducer, 
     featuredSectionReducerInitialState,
     featuredSectionReducerTypes
- } from '../../reducers';
+ } from './FeaturedSection.reducer';
 
 function FeaturedSection() {
     const { 
