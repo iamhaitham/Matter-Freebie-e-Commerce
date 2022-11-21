@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import Image from '../../shared/Image/Image';
 import ImageContainer from '../../shared/ImageContainer/ImageContainer';
 import SectionTitle from '../../shared/SectionTitle/SectionTitle';
@@ -7,27 +7,66 @@ import Button from '../../shared/Button/Button';
 import styles from './FeaturedSection.module.css';
 import QuickView from '../../QuickView/QuickView';
 import { featuredEntities } from '../../entities';
+import { 
+    featuredSectionReducer, 
+    featuredSectionReducerInitialState,
+    featuredSectionReducerTypes
+ } from '../../reducers';
 
 function FeaturedSection() {
-    const { buttonStyles, featuredHoveredImagesStyles, featuredSecitonStyles, quickViewStyles } = styles;
-    const buttonCss = `bg-mid-grey grey-text ${ buttonStyles }`;
-    const [quickViewButton, setQuickViewButton] = useState({ id: 0, isQuickView: false });
-    const [quickViewItem, setQuickViewItem] = useState({});
-    const [miniImage, setMiniImage] = useState(featuredEntities[0].miniImages[0]);
-
+    const { 
+        buttonStyles, 
+        featuredHoveredImagesStyles, 
+        featuredSecitonStyles, 
+        quickViewStyles,
+        imageStyles, 
+        imageContainerStyles 
+    } = styles;
     const featuredsectionTitle = 'Featured';
-    const { imageStyles, imageContainerStyles } = styles;
+    const buttonCss = `bg-mid-grey grey-text ${ buttonStyles }`;
+    const [state, dispatch] = useReducer(featuredSectionReducer, featuredSectionReducerInitialState);
+    const { 
+        QuickView_Closed,
+        QuickView_Button_MouseOver,
+        QuickView_Button_MouseOut,
+        QuickView_Item_Chosen,
+        QuickView_MiniImage_Chosen
+     } = featuredSectionReducerTypes;
 
-    function handleMouseOver(e, id) {
-        setQuickViewButton({ id, isQuickView: true });
+    function handleMouseOver(_, id) {
+        dispatch({ 
+            type: QuickView_Button_MouseOver,
+            id, 
+            isQuickView: true 
+        });
     }
 
-    function handleMouseOut(e, id) {
-        setQuickViewButton({ id, isQuickView: false });
+    function handleMouseOut(_, id) {
+        dispatch({ 
+            type: QuickView_Button_MouseOut,
+            id, 
+            isQuickView: false 
+        });
+    }
+
+    function handleQuickViewClick(e, id) {
+        dispatch({ 
+            type: QuickView_Item_Chosen,
+            quickViewItem: featuredEntities[id - 1]
+        });
     }
 
     function handleMiniImageClick(e, entityId, miniImageId) {
-        setMiniImage(featuredEntities[entityId - 1].miniImages[miniImageId - 1]);
+        dispatch({
+            type: QuickView_MiniImage_Chosen,
+            miniImage: featuredEntities[entityId - 1].miniImages[miniImageId - 1]
+        });
+    }
+
+    function handleCloseClick() {
+        dispatch({
+            type: QuickView_Closed
+        });
     }
 
     function showDescriptionAndPrice(description, price) {
@@ -39,42 +78,13 @@ function FeaturedSection() {
         );
     }
 
-    function onQuickView(e, id) {
-        setQuickViewItem(featuredEntities[id - 1]);
-    }
-
-    function shouldOpenQuickView() {
-        if (!!quickViewItem.id) {
-            return (
-                <QuickView customCss={ quickViewStyles }
-                           entity={ quickViewItem } 
-                           onCloseClick={ handleCloseClick }
-                           onMiniImageClick={ handleMiniImageClick }
-                           defaultMiniImage={ miniImage }/>
-            );
-        } else {
-            return (
-                <Section customCss={ featuredSecitonStyles }>
-                    <SectionTitle content={ featuredsectionTitle }/>
-                    <ImageContainer customCss={ imageContainerStyles }>
-                        { featuredItems }
-                    </ImageContainer>
-                </Section>
-            );
-        }
-    }
-
-    function handleCloseClick() {
-        setQuickViewItem({});
-    }
-
     function isButtonVisible(id) {
-        if (quickViewButton.id === id && quickViewButton.isQuickView) {
+        if (state.quickViewButton.id === id && state.quickViewButton.isQuickView) {
             return (
                 <Button id={ id }
                         content='QUICK VIEW' 
                         customButtonCss={ buttonCss }
-                        handleClick={ onQuickView }/>
+                        handleClick={ handleQuickViewClick }/>
             );
         };
     }
@@ -107,6 +117,27 @@ function FeaturedSection() {
             </div>
         );
     });
+
+    function shouldOpenQuickView() {
+        if (!!state.quickViewItem.id) {
+            return (
+                <QuickView customCss={ quickViewStyles }
+                           entity={ state.quickViewItem } 
+                           onCloseClick={ handleCloseClick }
+                           onMiniImageClick={ handleMiniImageClick }
+                           defaultMiniImage={ state.miniImage }/>
+            );
+        } else {
+            return (
+                <Section customCss={ featuredSecitonStyles }>
+                    <SectionTitle content={ featuredsectionTitle }/>
+                    <ImageContainer customCss={ imageContainerStyles }>
+                        { featuredItems }
+                    </ImageContainer>
+                </Section>
+            );
+        }
+    }
 
     return (
         <>
