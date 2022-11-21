@@ -6,3 +6,4 @@ export * from './sizesEntities';
 export * from './rightNavigationMenuIconsEntities';
 export * from './footerColumnsEntities';
 export * from './footerIconsEntities';
+export * from './carouselSectionPhotosEntities';
