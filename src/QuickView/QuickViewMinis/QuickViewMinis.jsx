@@ -38,7 +38,8 @@ function QuickViewMinis({
                    imageCss={ getImageCss(id) }
                    handleClick={ (e) => onMiniImageClick(e, id) }/>
         );
-    })
+    });
+
     return (
         <ImageContainer customCss={ imageContainerStyles }>
             { miniImages }  
