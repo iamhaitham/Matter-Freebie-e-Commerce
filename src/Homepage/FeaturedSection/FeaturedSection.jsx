@@ -147,7 +147,8 @@ function FeaturedSection() {
 
     const featuredSectionContextProviderValue = {
         handleMiniImageClick: handleMiniImageClick,
-        handleQuickViewCloseClick: handleQuickViewCloseClick
+        handleQuickViewCloseClick: handleQuickViewCloseClick,
+        featuredEntity: state.quickViewItem
     };
 
     return (

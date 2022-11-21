@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Size from '../../shared/Size/Size';
 import styles from './QuickViewDetails.module.css';
 import QuickViewDetailsRow from './QuickViewDetailsRow/QuickViewDetailsRow';
@@ -7,13 +7,15 @@ import Counter from '../../shared/Counter/Counter';
 import StarContainer from '../../shared/Star/StarContainer/StarContainer';
 import { detailsRowsEntities, sizesEntities } from '../../entities';
 import useLocalStorageState from 'use-local-storage-state'
+import { FeaturedSectionContext } from '../../services/contexts';
 
-function QuickViewDetails({ featuredEntity }) {
+function QuickViewDetails() {
     const [selectedSize, setSelectedSize] = useState({});
     const [counter, setCounter] = useState(1);
     const [cartItems, setCartItems] = useLocalStorageState('cartItems', {
         defaultValue: []
     });
+    const { featuredEntity } = useContext(FeaturedSectionContext);
 
     const { quickViewDetailsStyles, 
             titleStyles, 

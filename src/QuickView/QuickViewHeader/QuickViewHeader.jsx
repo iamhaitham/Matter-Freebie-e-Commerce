@@ -3,13 +3,13 @@ import { FeaturedSectionContext } from "../../services/contexts";
 import Icon from "../../shared/Icon/Icon";
 import styles from './QuickViewHeader.module.css';
 
-function QuickViewHeader({ featuredEntity }) {
+function QuickViewHeader() {
     const { 
         quickViewHeaderStyles, 
         iconStyles, 
         titleStyles 
     } = styles;
-    const { handleQuickViewCloseClick } = useContext(FeaturedSectionContext);
+    const { handleQuickViewCloseClick, featuredEntity } = useContext(FeaturedSectionContext);
 
     return (
         <div className={ quickViewHeaderStyles }>

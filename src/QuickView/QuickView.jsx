@@ -6,7 +6,6 @@ import styles from './QuickView.module.css';
 import Button from '../shared/Button/Button';
 
 function QuickView({ 
-    entity, 
     defaultMiniImage, 
     customCss 
 }) {
@@ -19,14 +18,13 @@ function QuickView({
     return (
         <div className={ quickViewWrapperStyles }>
             <div className={ customCss }>
-                <QuickViewHeader featuredEntity={ entity }/>
+                <QuickViewHeader/>
                 <div className='flex'>
-                    <QuickViewMinis featuredEntity={ entity }
-                                    defaultMiniImage={ defaultMiniImage }/>
+                    <QuickViewMinis defaultMiniImage={ defaultMiniImage }/>
                     <Image src={ defaultMiniImage.src } 
                            alt={ defaultMiniImage.alt } 
                            imageCss={ mainImageStyles }/>
-                    <QuickViewDetails featuredEntity={ entity }/>
+                    <QuickViewDetails/>
                 </div>
                 <Button content='View Full product Details'
                         customButtonCss={ viewFullProductButtonStyles }/>

@@ -4,17 +4,14 @@ import Image from '../../shared/Image/Image';
 import ImageContainer from '../../shared/ImageContainer/ImageContainer';
 import styles from './QuickViewMinis.module.css';
 
-function QuickViewMinis({ 
-    featuredEntity, 
-    defaultMiniImage 
-}) {
+function QuickViewMinis({ defaultMiniImage }) {
     const { 
         miniImageStyles, 
         activeMiniImageStyles, 
         imageContainerStyles 
     } = styles;
 
-    const { handleMiniImageClick } = useContext(FeaturedSectionContext);
+    const { handleMiniImageClick, featuredEntity } = useContext(FeaturedSectionContext);
 
     function onMiniImageClick(e, miniImageId) {
         handleMiniImageClick(e, miniImageId, miniImageId);
