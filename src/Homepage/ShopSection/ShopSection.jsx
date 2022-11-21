@@ -5,6 +5,7 @@ import ImageContainer from '../../shared/ImageContainer/ImageContainer';
 import Button from '../../shared/Button/Button';
 import styles from './ShopSection.module.css';
 import { useState } from 'react';
+import { shopEntities } from '../../entities';
 
 function ShopSection() {
     const [showShopNowButton, setShowShopNowButton] = useState({ id: 0, show: false });
@@ -27,12 +28,6 @@ function ShopSection() {
         return showShopNowButton.show && showShopNowButton.id === id;
     }
 
-    const shopEntities = [
-        { id: 1, src:'/images/shop-pants.png', alt: 'Pants', description: 'Pants' },
-        { id: 2, src:'/images/shop-jumpsuits.png', alt: 'Jumpsuits', description: 'Jumpsuits' },
-        { id: 3, src:'/images/shop-tops.png', alt: 'Tops', description: 'Tops' },
-        { id: 4, src:'/images/shop-accessories.png', alt: 'Accessories', description: 'Accessories' }
-    ];
     const shopPictures = shopEntities.map(entity => {
         const { id, src, alt, description } = entity;
 

@@ -8,3 +8,4 @@ export * from './footerColumnsEntities';
 export * from './footerIconsEntities';
 export * from './carouselSectionPhotosEntities';
 export * from './articlesEntities';
+export * from './shopEntities';
