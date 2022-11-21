@@ -11,7 +11,8 @@ import {
     featuredSectionReducer, 
     featuredSectionReducerInitialState,
     featuredSectionReducerTypes
- } from './FeaturedSection.reducer';
+ } from '../../services/reducers';
+import { FeaturedSectionContext } from '../../services/contexts';
 
 function FeaturedSection() {
     const { 
@@ -63,7 +64,7 @@ function FeaturedSection() {
         });
     }
 
-    function handleCloseClick() {
+    function handleQuickViewCloseClick() {
         dispatch({
             type: QuickView_Closed
         });
@@ -129,9 +130,7 @@ function FeaturedSection() {
         if (!!state.quickViewItem.id) {
             return (
                 <QuickView customCss={ quickViewStyles }
-                           entity={ state.quickViewItem } 
-                           onCloseClick={ handleCloseClick }
-                           onMiniImageClick={ handleMiniImageClick }
+                           entity={ state.quickViewItem }
                            defaultMiniImage={ state.miniImage }/>
             );
         } else {
@@ -146,10 +145,15 @@ function FeaturedSection() {
         }
     }
 
+    const featuredSectionContextProviderValue = {
+        handleMiniImageClick: handleMiniImageClick,
+        handleQuickViewCloseClick: handleQuickViewCloseClick
+    };
+
     return (
-        <>
+        <FeaturedSectionContext.Provider value={ featuredSectionContextProviderValue }>
             { shouldOpenQuickView() }
-        </>
+        </FeaturedSectionContext.Provider>
     );
 }
 

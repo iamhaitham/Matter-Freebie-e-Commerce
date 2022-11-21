@@ -1,10 +1,11 @@
+import { useContext } from 'react';
+import { FeaturedSectionContext } from '../../services/contexts';
 import Image from '../../shared/Image/Image';
 import ImageContainer from '../../shared/ImageContainer/ImageContainer';
 import styles from './QuickViewMinis.module.css';
 
 function QuickViewMinis({ 
     featuredEntity, 
-    handleMiniImageClick, 
     defaultMiniImage 
 }) {
     const { 
@@ -12,6 +13,8 @@ function QuickViewMinis({
         activeMiniImageStyles, 
         imageContainerStyles 
     } = styles;
+
+    const { handleMiniImageClick } = useContext(FeaturedSectionContext);
 
     function onMiniImageClick(e, miniImageId) {
         handleMiniImageClick(e, miniImageId, miniImageId);

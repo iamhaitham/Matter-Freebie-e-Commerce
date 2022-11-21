@@ -7,8 +7,6 @@ import Button from '../shared/Button/Button';
 
 function QuickView({ 
     entity, 
-    onCloseClick, 
-    onMiniImageClick, 
     defaultMiniImage, 
     customCss 
 }) {
@@ -21,11 +19,9 @@ function QuickView({
     return (
         <div className={ quickViewWrapperStyles }>
             <div className={ customCss }>
-                <QuickViewHeader featuredEntity={ entity }
-                                 handleCloseClick={ onCloseClick }/>
+                <QuickViewHeader featuredEntity={ entity }/>
                 <div className='flex'>
                     <QuickViewMinis featuredEntity={ entity }
-                                    handleMiniImageClick={ onMiniImageClick }
                                     defaultMiniImage={ defaultMiniImage }/>
                     <Image src={ defaultMiniImage.src } 
                            alt={ defaultMiniImage.alt } 

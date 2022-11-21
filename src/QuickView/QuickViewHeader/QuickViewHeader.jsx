@@ -1,23 +1,23 @@
+import { useContext } from "react";
+import { FeaturedSectionContext } from "../../services/contexts";
 import Icon from "../../shared/Icon/Icon";
 import styles from './QuickViewHeader.module.css';
 
-function QuickViewHeader({ 
-    featuredEntity, 
-    handleCloseClick 
-}) {
+function QuickViewHeader({ featuredEntity }) {
     const { 
         quickViewHeaderStyles, 
         iconStyles, 
         titleStyles 
     } = styles;
+    const { handleQuickViewCloseClick } = useContext(FeaturedSectionContext);
 
     return (
         <div className={ quickViewHeaderStyles }>
-            <p className={ titleStyles }>{ featuredEntity.title }</p>
+            <p className={ titleStyles }>{ featuredEntity.description }</p>
             <Icon src='/icons/close-icon.png' 
                   alt='Close icon' 
                   iconCss={ iconStyles }
-                  handleClick={ handleCloseClick }/>
+                  handleClick={ handleQuickViewCloseClick }/>
         </div>
     );
 }
