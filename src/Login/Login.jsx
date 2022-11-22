@@ -33,11 +33,12 @@ export default function SignIn() {
 
     return (
         <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs" style={{ marginBottom: '6rem' }}>
+            <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
                 sx={{
-                    marginTop: 8,
+                    marginTop: 4,
+                    marginBottom: 6,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
