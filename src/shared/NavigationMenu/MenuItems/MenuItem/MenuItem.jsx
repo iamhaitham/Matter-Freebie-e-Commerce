@@ -32,7 +32,7 @@ function MenuItem({
 
     function handleClick(e, id) {
         handleMenuItemClick(e, id);
-        setActiveMenuItemId(id);
+        setActiveMenuItemId = setActiveMenuItemId ? setActiveMenuItemId(id) : undefined;
     }
 
     return (
