@@ -125,13 +125,20 @@ export default function Login() {
                         </Box>
                     </Box>
             </Container>
+        );
+    }
+
+    const showToastNotification  = () => {
+        if (isAuthenticated === false) 
+            return (
+                <ToastNotification errorMessage={ errorMessage }/>
             );
     }
 
     return (
         <ThemeProvider theme={theme}>
             { showLoader() }
-            { isAuthenticated === false && <ToastNotification errorMessage={ errorMessage }/> }
+            { showToastNotification() }
         </ThemeProvider>
     );
 }
