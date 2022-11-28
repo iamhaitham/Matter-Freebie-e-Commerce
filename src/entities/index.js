@@ -9,3 +9,4 @@ export * from './footerIconsEntities';
 export * from './carouselSectionPhotosEntities';
 export * from './articlesEntities';
 export * from './shopEntities';
+export * from './rightMenuItemsEntities';
