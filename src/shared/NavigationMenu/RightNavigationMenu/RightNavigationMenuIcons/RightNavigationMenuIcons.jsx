@@ -2,7 +2,7 @@ import { Badge } from '@mui/material';
 import Icon from '../../../Icon/Icon';
 import styles from './RightNavigationMenuIcons.module.css';
 import { rightNavigationMenuIconsEntities } from '../../../../entities';
-import useLocalStorageState from 'use-local-storage-state'
+import useLocalStorageState from 'use-local-storage-state';
 
 function RightNavigationMenuIcons() {
     const [cartItems] = useLocalStorageState('cartItems');
