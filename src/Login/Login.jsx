@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -22,13 +21,13 @@ const theme = createTheme();
 export default function Login() {
     const navigate = useNavigate();
     const [, setUserToken] = useLocalStorageState('userToken');
-    const [errorMessage, setErrorMessage] = useState('');
     const [state, dispatch] = useLoginReducer();
     const {
         Login_Loading,
         Login_SetEmail,
         Login_ValidateEmail,
-        Login_IsUserAuthenticated
+        Login_IsUserAuthenticated,
+        Login_SetErrorMessage
     } = loginReducerTypes;
 
     const handleEmailChange = (event) => {
@@ -36,6 +35,7 @@ export default function Login() {
             type: Login_SetEmail,
             email: event.target.value
         });
+        
         validateEmail(event);
     }
 
@@ -55,7 +55,12 @@ export default function Login() {
 
         if (!state.isEmailValid) {
             const message = 'Email is not valid!';
-            setErrorMessage(message)
+            
+            dispatch({
+                type: Login_SetErrorMessage,
+                errorMessage: message
+            });
+
             dispatch({
                 type: Login_IsUserAuthenticated,
                 isUserAuthenticated: false
@@ -87,9 +92,15 @@ export default function Login() {
             navigate('/');
         } catch (error) {          
             if (error.response.status === 401) {
-                setErrorMessage('Incorrect email or password!')
+                dispatch({
+                    type: Login_SetErrorMessage,
+                    errorMessage: 'Incorrect email or password!'
+                });
             } else {
-                setErrorMessage('Server Error!')
+                dispatch({
+                    type: Login_SetErrorMessage,
+                    errorMessage: 'Server Error!'
+                });
             }
 
             dispatch({
@@ -166,11 +177,11 @@ export default function Login() {
     }
 
     const showToastNotification  = () => {
-        if (state.isUserAuthenticated === false && errorMessage.length) 
+        if (state.isUserAuthenticated === false && state.errorMessage.length) 
             return (
-                <ToastNotification key={ errorMessage } 
-                                   setErrorMessage={ setErrorMessage }
-                                   errorMessage={ errorMessage }/>
+                <ToastNotification key={ state.errorMessage } 
+                                   dispatchErrorMessage={ dispatch }
+                                   errorMessage={ state.errorMessage }/>
             );
     }
 

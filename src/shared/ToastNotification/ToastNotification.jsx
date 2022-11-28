@@ -2,12 +2,14 @@ import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import { useState, forwardRef } from 'react';
+import { loginReducerTypes } from '../../services/reducers';
 
 const Alert = forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function ToastNotification({ errorMessage, setErrorMessage }) {
+export default function ToastNotification({ errorMessage, dispatchErrorMessage }) {
+  const { Login_SetErrorMessage } = loginReducerTypes;
   const [open, setOpen] = useState(true);
 
   const handleClose = (_, reason) => {
@@ -16,7 +18,11 @@ export default function ToastNotification({ errorMessage, setErrorMessage }) {
     }
 
     setOpen(false);
-    setErrorMessage('');
+
+    dispatchErrorMessage({
+      type: Login_SetErrorMessage,
+      errorMessage: ''
+    });
   };
 
   return (

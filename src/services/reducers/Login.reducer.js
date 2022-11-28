@@ -2,14 +2,16 @@ export const loginReducerInitialState = {
     isLoading: false,
     email: '',
     isEmailValid: true,
-    isUserAuthenticated: null
+    isUserAuthenticated: null,
+    errorMessage: ''
 };
 
 export const loginReducerTypes = {
     Login_Loading: 'login_loading',
     Login_SetEmail: 'login_setEmail',
     Login_ValidateEmail: 'login_validateEmail',
-    Login_IsUserAuthenticated: 'login_isUserAuthenticated'
+    Login_IsUserAuthenticated: 'login_isUserAuthenticated',
+    Login_SetErrorMessage: 'login_setErrorMessage'
 }
 
 export function loginReducer(state, action) {
@@ -34,7 +36,12 @@ export function loginReducer(state, action) {
             return {
                 ...state,
                 isUserAuthenticated: action.isUserAuthenticated
-            }
+            };
+        case loginReducerTypes.Login_SetErrorMessage:
+            return {
+                ...state,
+                errorMessage: action.errorMessage
+            };
         default:
             throw Error('Unknown action.');
     }
