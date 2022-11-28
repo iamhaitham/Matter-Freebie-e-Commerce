@@ -27,6 +27,7 @@ export function loginReducer(state, action) {
         case loginReducerTypes.Login_ValidateEmail:
             return {
                 ...state,
+                // eslint-disable-next-line no-useless-escape
                 isEmailValid: !!action.isEmailValid.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
             };
         case loginReducerTypes.Login_IsUserAuthenticated:
