@@ -14,10 +14,12 @@ import { axiosLoginInstance } from '../services/custom';
 import ToastNotification from '../shared/ToastNotification/ToastNotification';
 import Loader from '../shared/Loader/Loader';
 import { loginReducerTypes, loginReducer, loginReducerInitialState } from '../services/reducers';
+import { useNavigate } from 'react-router';
 
 const theme = createTheme();
 
 export default function Login() {
+    const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
     const [state, dispatch] = useReducer(loginReducer, loginReducerInitialState);
     const {
@@ -77,6 +79,8 @@ export default function Login() {
                 type: Login_IsUserAuthenticated,
                 isUserAuthenticated: true
             });
+
+            navigate('/');
         } catch (error) {          
             if (error.response.status === 401) {
                 setErrorMessage('Incorrect email or password!')
