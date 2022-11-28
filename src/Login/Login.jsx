@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,10 +10,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { axiosLoginInstance } from '../services/custom';
+import { axiosLoginInstance, useLoginReducer } from '../services/custom';
 import ToastNotification from '../shared/ToastNotification/ToastNotification';
 import Loader from '../shared/Loader/Loader';
-import { loginReducerTypes, loginReducer, loginReducerInitialState } from '../services/reducers';
+import { loginReducerTypes } from '../services/reducers';
 import { useNavigate } from 'react-router';
 
 const theme = createTheme();
@@ -21,7 +21,7 @@ const theme = createTheme();
 export default function Login() {
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
-    const [state, dispatch] = useReducer(loginReducer, loginReducerInitialState);
+    const [state, dispatch] = useLoginReducer();
     const {
         Login_Loading,
         Login_SetEmail,
