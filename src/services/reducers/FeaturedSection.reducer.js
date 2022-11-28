@@ -15,35 +15,35 @@ export const featuredSectionReducerTypes = {
 }
 
 export function featuredSectionReducer(state, action) {
-    switch (action.type) {
-      case featuredSectionReducerTypes.QuickView_Closed:
-        return {
-          ...state, 
-          quickViewItem: {}
-        };
-      case featuredSectionReducerTypes.QuickView_Button_MouseOver:
-      case featuredSectionReducerTypes.QuickView_Button_MouseOut:
-        return {
-          ...state,
-          quickViewButton: {
-            ...state.quickViewButton, 
-            id: action.id,
-            isQuickView: action.isQuickView
-          }
-        };
-      case featuredSectionReducerTypes.QuickView_Item_Chosen:
-        return {
-          ...state, 
-          quickViewItem: {
-            ...action.quickViewItem
-          }
-        };
-      case featuredSectionReducerTypes.QuickView_MiniImage_Chosen:
-        return {
-          ...state, 
-          miniImage: action.miniImage
-        };
-      default:
-        throw Error('Unknown action.');
-    }
+  switch (action.type) {
+    case featuredSectionReducerTypes.QuickView_Closed:
+      return {
+        ...state, 
+        quickViewItem: {}
+      };
+    case featuredSectionReducerTypes.QuickView_Button_MouseOver:
+    case featuredSectionReducerTypes.QuickView_Button_MouseOut:
+      return {
+        ...state,
+        quickViewButton: {
+          ...state.quickViewButton, 
+          id: action.id,
+          isQuickView: action.isQuickView
+        }
+      };
+    case featuredSectionReducerTypes.QuickView_Item_Chosen:
+      return {
+        ...state, 
+        quickViewItem: {
+          ...action.quickViewItem
+        }
+      };
+    case featuredSectionReducerTypes.QuickView_MiniImage_Chosen:
+      return {
+        ...state, 
+        miniImage: action.miniImage
+      };
+    default:
+      throw Error('Unknown action.');
+  }
 }
