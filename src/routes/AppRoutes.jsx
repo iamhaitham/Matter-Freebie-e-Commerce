@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Homepage from './Homepage/Homepage';
+import Homepage from '../Homepage/Homepage';
 import Layout from './Layout';
-import ProductListing from './ProductListing/ProductListing.jsx';
-import Login from './Login/Login';
+import ProductListing from '../ProductListing/ProductListing.jsx';
+import Login from '../Login/Login';
 
 function AppRoutes() {
     return (
