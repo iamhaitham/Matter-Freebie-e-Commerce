@@ -15,11 +15,13 @@ import ToastNotification from '../shared/ToastNotification/ToastNotification';
 import Loader from '../shared/Loader/Loader';
 import { loginReducerTypes } from '../services/reducers';
 import { useNavigate } from 'react-router';
+import useLocalStorageState from 'use-local-storage-state';
 
 const theme = createTheme();
 
 export default function Login() {
     const navigate = useNavigate();
+    const [, setUserToken] = useLocalStorageState('userToken');
     const [errorMessage, setErrorMessage] = useState('');
     const [state, dispatch] = useLoginReducer();
     const {
@@ -70,7 +72,7 @@ export default function Login() {
         });
 
         try {
-            await axiosLoginInstance.post('/login', {
+            const { data: { token } } = await axiosLoginInstance.post('/login', {
                 username: state.email.split('@')[0],
                 password
             });
@@ -79,6 +81,8 @@ export default function Login() {
                 type: Login_IsUserAuthenticated,
                 isUserAuthenticated: true
             });
+
+            setUserToken(token);
 
             navigate('/');
         } catch (error) {          
