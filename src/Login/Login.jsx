@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,51 +13,70 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { axiosLoginInstance } from '../services/custom';
 import ToastNotification from '../shared/ToastNotification/ToastNotification';
 import Loader from '../shared/Loader/Loader';
+import { loginReducerTypes, loginReducer, loginReducerInitialState } from '../services/reducers';
 
 const theme = createTheme();
 
 export default function Login() {
-    const [isLoader, setIsLoader] = useState(false);
-    const [email, setEmail] = useState('');
-    const [isEmailValid, setIsEmailValid] = useState(true);
-    const [isAuthenticated, setIsAuthenticated] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
+    const [state, dispatch] = useReducer(loginReducer, loginReducerInitialState);
+    const {
+        Login_Loading,
+        Login_SetEmail,
+        Login_ValidateEmail,
+        Login_IsUserAuthenticated
+    } = loginReducerTypes;
 
     const handleEmailChange = (event) => {
-        setEmail(event.target.value);
+        dispatch({
+            type: Login_SetEmail,
+            email: event.target.value
+        });
         validateEmail(event);
     }
 
     const validateEmail = (event) =>  {
-        handleEmailFieldLeave(event);
+        dispatch({
+            type: Login_ValidateEmail,
+            isEmailValid: event.target.value
+        });
     }
 
     const handleEmailFieldLeave = (event) => {
-        setIsEmailValid(!!event.target.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/))
+        validateEmail(event);
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (!isEmailValid) {
+        if (!state.isEmailValid) {
             const message = 'Email is not valid!';
             setErrorMessage(message)
-            setIsAuthenticated(false);
+            dispatch({
+                type: Login_IsUserAuthenticated,
+                isUserAuthenticated: false
+            });
             return;
         }
 
         const form = new FormData(event.currentTarget);
         const password = form.get('password');
 
-        setIsLoader(true);
+        dispatch({
+            type: Login_Loading,
+            isLoading: true
+        });
 
         try {
             await axiosLoginInstance.post('/login', {
-                username: email.split('@')[0],
+                username: state.email.split('@')[0],
                 password
             });
 
-            setIsAuthenticated(true);
+            dispatch({
+                type: Login_IsUserAuthenticated,
+                isUserAuthenticated: true
+            });
         } catch (error) {          
             if (error.response.status === 401) {
                 setErrorMessage('Incorrect email or password!')
@@ -65,14 +84,20 @@ export default function Login() {
                 setErrorMessage('Server Error!')
             }
 
-            setIsAuthenticated(false);
+            dispatch({
+                type: Login_IsUserAuthenticated,
+                isUserAuthenticated: false
+            });
         }
 
-        setIsLoader(false);
+        dispatch({
+            type: Login_Loading,
+            isLoading: false
+        });
     }
 
     const showLoader = () => {
-        if (isLoader)
+        if (state.isLoading)
             return (
                 <Loader/>
             );
@@ -98,7 +123,7 @@ export default function Login() {
                             <TextField
                             onChange={ (event) => handleEmailChange(event) }
                             onBlur={ (event) => handleEmailFieldLeave(event) }
-                            error={ !isEmailValid }
+                            error={ !state.isEmailValid }
                             margin="normal"
                             required
                             fullWidth
@@ -133,7 +158,7 @@ export default function Login() {
     }
 
     const showToastNotification  = () => {
-        if (isAuthenticated === false && errorMessage.length) 
+        if (state.isUserAuthenticated === false && errorMessage.length) 
             return (
                 <ToastNotification key={ errorMessage } 
                                    setErrorMessage={ setErrorMessage }
