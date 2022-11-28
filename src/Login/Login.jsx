@@ -25,7 +25,11 @@ export default function Login() {
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
-        setIsEmailValid(true);
+        validateEmail(event);
+    }
+
+    const validateEmail = (event) =>  {
+        handleEmailFieldLeave(event);
     }
 
     const handleEmailFieldLeave = (event) => {
@@ -39,7 +43,7 @@ export default function Login() {
             const message = 'Email is not valid!';
             setErrorMessage(message)
             setIsAuthenticated(false);
-            throw new Error(message);
+            return;
         }
 
         const form = new FormData(event.currentTarget);
