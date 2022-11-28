@@ -11,7 +11,7 @@ export const featuredSectionReducerTypes = {
   QuickView_Button_MouseOver: 'quickView_button_mouseOver',
   QuickView_Button_MouseOut: 'quickView_button_mouseOut',
   QuickView_Item_Chosen:  'quickView_Item_chosen',
-  QuickView_MiniImage_Chosen: 'quickView_miniImage_chosen',
+  QuickView_MiniImage_Chosen: 'quickView_miniImage_chosen'
 }
 
 export function featuredSectionReducer(state, action) {
