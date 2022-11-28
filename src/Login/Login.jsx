@@ -21,7 +21,7 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [isEmailValid, setIsEmailValid] = useState(true);
     const [isAuthenticated, setIsAuthenticated] = useState(null);
-    const [errorMessage, setErrorMessage] = useState();
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
@@ -133,9 +133,11 @@ export default function Login() {
     }
 
     const showToastNotification  = () => {
-        if (isAuthenticated === false) 
+        if (isAuthenticated === false && errorMessage.length) 
             return (
-                <ToastNotification errorMessage={ errorMessage }/>
+                <ToastNotification key={ errorMessage } 
+                                   setErrorMessage={ setErrorMessage }
+                                   errorMessage={ errorMessage }/>
             );
     }
 

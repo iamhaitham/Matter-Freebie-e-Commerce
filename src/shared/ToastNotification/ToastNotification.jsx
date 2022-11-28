@@ -7,7 +7,7 @@ const Alert = forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function ToastNotification({ errorMessage }) {
+export default function ToastNotification({ errorMessage, setErrorMessage }) {
   const [open, setOpen] = useState(true);
 
   const handleClose = (_, reason) => {
@@ -16,6 +16,7 @@ export default function ToastNotification({ errorMessage }) {
     }
 
     setOpen(false);
+    setErrorMessage('');
   };
 
   return (
