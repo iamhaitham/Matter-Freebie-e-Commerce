@@ -27,14 +27,14 @@ function MenuItem({ entity }) {
         return listItemStyle;
     }
 
-    function handleClick(_, id, name) {
+    function handleClick(_, name) {
         handleMenuItemClick(name);
     }
 
     return (
         <li key={ id } 
             className={ chooseListItemStyle(isArrowIncluded, id) }
-            onClick={ handleMenuItemClick ? (e) => handleClick(e, id, name) : undefined }>{ name }</li>
+            onClick={ handleMenuItemClick ? (e) => handleClick(e, name) : undefined }>{ name }</li>
     );
 }
 
