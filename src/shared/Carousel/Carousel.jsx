@@ -31,8 +31,7 @@ function Carousel({ photos }) {
     return (
         <>
             <div className={ carouselContainerStyles }>
-                <Image key={ carouselImage.id } 
-                       src={ carouselImage.src } 
+                <Image src={ carouselImage.src } 
                        alt={ carouselImage.alt }
                        imageCss={ imageStyles }>
                         <h1>{ carouselImage.title }</h1>
