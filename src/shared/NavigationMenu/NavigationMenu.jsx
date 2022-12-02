@@ -45,13 +45,16 @@ function NavigationMenu() {
             navigate(`${rightMenuItem.name.toLowerCase()}`);
         }
         else if (rightMenuItem.id === 6) {
-            dispatch({
-                type: NavigationMenu_SelectItem,
-                activeMenuItemId: -1
-            });
-
+            resetSelectedItem();
             removeItem();
         }
+    }
+
+    const resetSelectedItem = () => {
+        dispatch({
+            type: NavigationMenu_SelectItem,
+            activeMenuItemId: -1
+        });
     }
 
     const handleMenuItemClick = (itemName) => {
@@ -69,10 +72,7 @@ function NavigationMenu() {
             <div className={ navigationMenuWrapper }>
                 <div className={ leftNavigationMenuWrapper }>
                     <Link to='/' 
-                          onClick={ () => dispatch({
-                            type: NavigationMenu_SelectItem,
-                            activeMenuItemId: -1
-                          }) }
+                          onClick={ resetSelectedItem }
                           className={ routerLinkStyles }>
                         <Logo/>
                     </Link>
