@@ -1,15 +1,9 @@
 import MenuItems from '../MenuItems/MenuItems';
 
-function LeftNavigationMenu({ 
-    activeMenuItemId, 
-    setActiveMenuItemId, 
-    leftMenuEntities
-}) {
+function LeftNavigationMenu({ leftMenuEntities }) {
 
     return (
-        <MenuItems entities={ leftMenuEntities }
-                   activeMenuItemId={ activeMenuItemId }
-                   setActiveMenuItemId={ setActiveMenuItemId }/>
+        <MenuItems entities={ leftMenuEntities }/>
     );
 }
 

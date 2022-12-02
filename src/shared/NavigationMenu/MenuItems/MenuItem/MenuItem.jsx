@@ -2,11 +2,7 @@ import { useContext } from 'react';
 import { NavigationMenuContext } from '../../../../services/contexts';
 import styles from './MenuItem.module.css';
 
-function MenuItem({ 
-    entity,
-    activeMenuItemId,
-    setActiveMenuItemId
-}) {
+function MenuItem({ entity }) {
     const listCss = {
         listItemWithArrow: `${ styles.listItemWithArrow }`,
         listItemWithoutArrow: `${ styles.listItemWithoutArrow }`,
@@ -15,7 +11,7 @@ function MenuItem({
     };
     const { listItemWithArrow, listItemWithoutArrow, activeMenuItem } = listCss;
     const { id, name, isArrowIncluded } = entity;
-    const handleMenuItemClick = useContext(NavigationMenuContext);
+    const { handleMenuItemClick, navigationMenuState } = useContext(NavigationMenuContext);
 
     function chooseListItemStyle(isArrowIncluded, id) {
         let listItemStyle = ``;
@@ -25,7 +21,7 @@ function MenuItem({
         else
             listItemStyle = listItemStyle.concat(' ', listItemWithoutArrow);
 
-        if (activeMenuItemId === id)
+        if (navigationMenuState.activeMenuItemId === id)
             listItemStyle = listItemStyle.concat(' ', activeMenuItem);
 
         return listItemStyle;
@@ -33,7 +29,6 @@ function MenuItem({
 
     function handleClick(_, id, name) {
         handleMenuItemClick(name);
-        setActiveMenuItemId = setActiveMenuItemId ? setActiveMenuItemId(id) : undefined;
     }
 
     return (

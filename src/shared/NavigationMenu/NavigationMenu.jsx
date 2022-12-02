@@ -3,10 +3,15 @@ import styles from './NavigationMenu.module.css';
 import LeftNavigationMenu from './LeftNavigationMenu/LeftNavigationMenu';
 import RightNavigationMenu from './RightNavigationMenu/RightNavigationMenu';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useReducer } from 'react';
 import { leftMenuItemsEntities, rightMenuItemsEntities } from '../../entities';
 import useLocalStorageState from 'use-local-storage-state';
 import { NavigationMenuContext } from '../../services/contexts';
+import { 
+    navigationMenuReducer, 
+    navigationMenuReducerInitialState, 
+    navigationMenuReducerTypes 
+} from '../../services/reducers';
 
 function NavigationMenu() {
     const { navigationMenu, routerLinkStyles } = styles;
@@ -16,20 +21,37 @@ function NavigationMenu() {
     };
     const { navigationMenuWrapper, leftNavigationMenuWrapper } = navigationMenuCss;
 
-    const [activeMenuItemId, setActiveMenuItemId] = useState();
     const [userToken, , { removeItem }] = useLocalStorageState('userToken');
     const rightMenuItems = userToken ? [rightMenuItemsEntities[1]] : [rightMenuItemsEntities[0]];
     const navigate = useNavigate();
+    const [state, dispatch] = useReducer(navigationMenuReducer, navigationMenuReducerInitialState);
+    const { NavigationMenu_SelectItem } = navigationMenuReducerTypes;
 
     const handleLeftMenuItemClick = (leftMenuItem) => {
         navigate(`${leftMenuItem.name.toLowerCase()}`);
+        dispatch({
+            type: NavigationMenu_SelectItem,
+            activeMenuItemId: leftMenuItem.id
+        });
     }
 
     const handleRightMenuItemClick = (rightMenuItem) => {
-        if (rightMenuItem.id === 1)
+        if (rightMenuItem.id === 5) {
+            dispatch({
+                type: NavigationMenu_SelectItem,
+                activeMenuItemId: rightMenuItem.id
+            });
+            
             navigate(`${rightMenuItem.name.toLowerCase()}`);
-        else if (rightMenuItem.id === 2)
+        }
+        else if (rightMenuItem.id === 6) {
+            dispatch({
+                type: NavigationMenu_SelectItem,
+                activeMenuItemId: -1
+            });
+
             removeItem();
+        }
     }
 
     const handleMenuItemClick = (itemName) => {
@@ -43,22 +65,22 @@ function NavigationMenu() {
     }
 
     return (
-        <NavigationMenuContext.Provider value={ handleMenuItemClick }>
+        <NavigationMenuContext.Provider value={ { handleMenuItemClick, navigationMenuState: state } }>
             <div className={ navigationMenuWrapper }>
                 <div className={ leftNavigationMenuWrapper }>
                     <Link to='/' 
-                          onClick={ () => setActiveMenuItemId(-1) }
+                          onClick={ () => dispatch({
+                            type: NavigationMenu_SelectItem,
+                            activeMenuItemId: -1
+                          }) }
                           className={ routerLinkStyles }>
                         <Logo/>
                     </Link>
 
-                    <LeftNavigationMenu activeMenuItemId={ activeMenuItemId }
-                                        setActiveMenuItemId={ setActiveMenuItemId }
-                                        leftMenuEntities={ leftMenuItemsEntities }/>
+                    <LeftNavigationMenu leftMenuEntities={ leftMenuItemsEntities }/>
                 </div>
 
-                <RightNavigationMenu handleRightMenuItemClick={ handleRightMenuItemClick }
-                                     rightMenuEntities={ rightMenuItems }/>
+                <RightNavigationMenu rightMenuEntities={ rightMenuItems }/>
             </div>
         </NavigationMenuContext.Provider>
     );

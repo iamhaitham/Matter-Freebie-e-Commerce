@@ -1,4 +1,6 @@
+import { leftMenuItemsEntities } from "./leftMenuItemsEntities";
+
 export const rightMenuItemsEntities = [
-    { id: 1, name: 'LOGIN', isArrowIncluded: false },
-    { id: 2, name: 'LOGOUT', isArrowIncluded: false }
+    { id: leftMenuItemsEntities.length + 1, name: 'LOGIN', isArrowIncluded: false },
+    { id: leftMenuItemsEntities.length + 2, name: 'LOGOUT', isArrowIncluded: false }
 ];
