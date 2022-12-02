@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import useLocalStorageState from 'use-local-storage-state';
 import { NavigationMenuContext } from '../../../../services/contexts';
 import styles from './MenuItem.module.css';
 
@@ -11,7 +12,8 @@ function MenuItem({ entity }) {
     };
     const { listItemWithArrow, listItemWithoutArrow, activeMenuItem } = listCss;
     const { id, name, isArrowIncluded } = entity;
-    const { handleMenuItemClick, navigationMenuState } = useContext(NavigationMenuContext);
+    const { handleMenuItemClick } = useContext(NavigationMenuContext);
+    const [menuItemToken] = useLocalStorageState('menuItemToken');
 
     function chooseListItemStyle(isArrowIncluded, id) {
         let listItemStyle = ``;
@@ -21,7 +23,7 @@ function MenuItem({ entity }) {
         else
             listItemStyle = listItemStyle.concat(' ', listItemWithoutArrow);
 
-        if (navigationMenuState.activeMenuItemId === id)
+        if (menuItemToken === id)
             listItemStyle = listItemStyle.concat(' ', activeMenuItem);
 
         return listItemStyle;
