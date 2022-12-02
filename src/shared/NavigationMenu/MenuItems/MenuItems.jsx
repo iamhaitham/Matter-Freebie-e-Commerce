@@ -3,7 +3,6 @@ import styles from './MenuItems.module.css';
 
 function MenuItems({ 
     entities, 
-    handleMenuItemClick,
     activeMenuItemId,
     setActiveMenuItemId
 }) {
@@ -17,7 +16,6 @@ function MenuItems({
                       id={ id }
                       name={ name } 
                       isArrowIncluded={ isArrowIncluded }
-                      handleMenuItemClick={ handleMenuItemClick }
                       activeMenuItemId={ activeMenuItemId }
                       setActiveMenuItemId={ setActiveMenuItemId }/>
         );

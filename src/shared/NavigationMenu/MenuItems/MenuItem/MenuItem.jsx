@@ -1,10 +1,11 @@
+import { useContext } from 'react';
+import { NavigationMenuContext } from '../../../../services/contexts';
 import styles from './MenuItem.module.css';
 
 function MenuItem({ 
     id, 
     name, 
     isArrowIncluded, 
-    handleMenuItemClick,
     activeMenuItemId,
     setActiveMenuItemId
 }) {
@@ -15,6 +16,7 @@ function MenuItem({
         
     };
     const { listItemWithArrow, listItemWithoutArrow, activeMenuItem } = listCss;
+    const handleMenuItemClick = useContext(NavigationMenuContext);
 
     function chooseListItemStyle(isArrowIncluded, id) {
         let listItemStyle = ``;
@@ -30,15 +32,15 @@ function MenuItem({
         return listItemStyle;
     }
 
-    function handleClick(e, id) {
-        handleMenuItemClick(e, id);
+    function handleClick(_, id, name) {
+        handleMenuItemClick(name);
         setActiveMenuItemId = setActiveMenuItemId ? setActiveMenuItemId(id) : undefined;
     }
 
     return (
         <li key={ id } 
             className={ chooseListItemStyle(isArrowIncluded, id) }
-            onClick={ handleMenuItemClick ? (e) => handleClick(e, id) : undefined }>{ name }</li>
+            onClick={ handleMenuItemClick ? (e) => handleClick(e, id, name) : undefined }>{ name }</li>
     );
 }
 
