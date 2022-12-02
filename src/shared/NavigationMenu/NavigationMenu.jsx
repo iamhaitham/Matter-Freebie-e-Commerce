@@ -27,7 +27,10 @@ function NavigationMenu() {
             <div className={ leftNavigationMenuWrapper }>
                 <Link to='/' 
                       onClick={ () => setActiveMenuItemId(-1) }
-                      className={ routerLinkStyles }><Logo/></Link>
+                      className={ routerLinkStyles }>
+                    <Logo/>
+                </Link>
+
                 <LeftNavigationMenu activeMenuItemId={ activeMenuItemId }
                                     setActiveMenuItemId={ setActiveMenuItemId }
                                     handleMenuItemClick={ handleMenuItemClick }
