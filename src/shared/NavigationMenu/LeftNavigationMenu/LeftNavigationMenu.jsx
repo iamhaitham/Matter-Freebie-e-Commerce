@@ -3,13 +3,13 @@ import MenuItems from '../MenuItems/MenuItems';
 function LeftNavigationMenu({ 
     activeMenuItemId, 
     setActiveMenuItemId, 
-    handleMenuItemClick,
+    handleLeftMenuItemClick,
     leftMenuEntities
 }) {
 
     return (
         <MenuItems entities={ leftMenuEntities }
-                   handleMenuItemClick={ handleMenuItemClick }
+                   handleMenuItemClick={ handleLeftMenuItemClick }
                    activeMenuItemId={ activeMenuItemId }
                    setActiveMenuItemId={ setActiveMenuItemId }/>
     );
