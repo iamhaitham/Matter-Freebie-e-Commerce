@@ -28,32 +28,23 @@ function NavigationMenu() {
     const { NavigationMenu_SelectItem } = navigationMenuReducerTypes;
 
     const handleLeftMenuItemClick = (leftMenuItem) => {
+        selectMenuItem(leftMenuItem.id);
         navigate(`${leftMenuItem.name.toLowerCase()}`);
-        dispatch({
-            type: NavigationMenu_SelectItem,
-            activeMenuItemId: leftMenuItem.id
-        });
     }
 
     const handleRightMenuItemClick = (rightMenuItem) => {
         if (rightMenuItem.id === 5) {
-            dispatch({
-                type: NavigationMenu_SelectItem,
-                activeMenuItemId: rightMenuItem.id
-            });
-            
+            selectMenuItem(rightMenuItem.id);
             navigate(`${rightMenuItem.name.toLowerCase()}`);
         }
-        else if (rightMenuItem.id === 6) {
-            resetSelectedItem();
+        else if (rightMenuItem.id === 6)
             removeItem();
-        }
     }
 
-    const resetSelectedItem = () => {
+    const selectMenuItem = (id = -1) => {
         dispatch({
             type: NavigationMenu_SelectItem,
-            activeMenuItemId: -1
+            activeMenuItemId: id
         });
     }
 
@@ -72,7 +63,7 @@ function NavigationMenu() {
             <div className={ navigationMenuWrapper }>
                 <div className={ leftNavigationMenuWrapper }>
                     <Link to='/' 
-                          onClick={ resetSelectedItem }
+                          onClick={ selectMenuItem }
                           className={ routerLinkStyles }>
                         <Logo/>
                     </Link>
