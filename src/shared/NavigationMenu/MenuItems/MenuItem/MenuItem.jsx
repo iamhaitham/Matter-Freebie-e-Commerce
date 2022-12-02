@@ -3,9 +3,7 @@ import { NavigationMenuContext } from '../../../../services/contexts';
 import styles from './MenuItem.module.css';
 
 function MenuItem({ 
-    id, 
-    name, 
-    isArrowIncluded, 
+    entity,
     activeMenuItemId,
     setActiveMenuItemId
 }) {
@@ -16,6 +14,7 @@ function MenuItem({
         
     };
     const { listItemWithArrow, listItemWithoutArrow, activeMenuItem } = listCss;
+    const { id, name, isArrowIncluded } = entity;
     const handleMenuItemClick = useContext(NavigationMenuContext);
 
     function chooseListItemStyle(isArrowIncluded, id) {

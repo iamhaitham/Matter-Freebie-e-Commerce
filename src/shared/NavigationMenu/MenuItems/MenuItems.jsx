@@ -9,13 +9,10 @@ function MenuItems({
     const listWrapper = `flex ${ styles.listWrapper }`;
 
     const items = entities.map(entity => {
-        const { id, name, isArrowIncluded } = entity;
 
         return (
-            <MenuItem key={ id } 
-                      id={ id }
-                      name={ name } 
-                      isArrowIncluded={ isArrowIncluded }
+            <MenuItem key={ entity.id } 
+                      entity={ entity }
                       activeMenuItemId={ activeMenuItemId }
                       setActiveMenuItemId={ setActiveMenuItemId }/>
         );
