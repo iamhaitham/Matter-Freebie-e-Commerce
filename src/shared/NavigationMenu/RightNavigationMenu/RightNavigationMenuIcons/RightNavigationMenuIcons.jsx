@@ -50,10 +50,9 @@ function RightNavigationMenuIcons() {
     return (
         <div className='flex'>
             { icons }
-            <Cart open={ isCartOpen } 
-                  handleClose={ closeCart } 
-                  tableHead={ cartTableHeadEntities }
-                  tableBody={ getCartTableBodyEntities(cartItems, setCartItems) }/>
+            <ModalDialog open={ isCartOpen } handleClose={ closeCart }>
+                <Cart tableHead={ cartTableHeadEntities } tableBody={ getCartTableBodyEntities(cartItems, setCartItems) }/>
+            </ModalDialog>
         </div>
     );
 }
