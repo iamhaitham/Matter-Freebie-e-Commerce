@@ -14,7 +14,7 @@ function RightNavigationMenuIcons() {
     const [cartItems] = useLocalStorageState('cartItems');
     const [isCartOpen, setIsCartOpen] = useState(false);
 
-    const { iconStyles, tableContainerStyles } = styles;
+    const { iconStyles } = styles;
 
     const openCart = () => {
         setIsCartOpen(true);
@@ -49,7 +49,6 @@ function RightNavigationMenuIcons() {
             { icons }
             <Cart open={ isCartOpen } 
                   handleClose={ closeCart } 
-                  tableContainerStyles={ tableContainerStyles }
                   tableHead={ cartTableHeadEntities }
                   tableBody={ getCartTableBodyEntities(cartItems) }/>
         </div>
