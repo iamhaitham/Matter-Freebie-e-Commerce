@@ -10,3 +10,5 @@ export * from './carouselSectionPhotosEntities';
 export * from './articlesEntities';
 export * from './shopEntities';
 export * from './rightMenuItemsEntities';
+export * from './cartTableHeadEntities';
+export * from './cartTableBodyEntities';
