@@ -18,7 +18,7 @@ function Cart({
         <Modal open={open} 
                onClose={handleClose} 
                style={{ display:'flex',alignItems:'center',justifyContent:'center' }}>
-            <TableContainer component={Paper} style={{ width: '50rem' }}>
+            <TableContainer component={ Paper } style={{ width: '50rem' }}>
                 <Table>
                     <TableHead>
                         <TableRow>
