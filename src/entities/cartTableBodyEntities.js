@@ -7,11 +7,13 @@ export const getCartTableBodyEntities = (cartItems) => {
     return cartItems.map(item => {
         const { itemId, quantity } = item;
         
+        const findItemByField = (field) => findItem(itemId, field);
+        
         return (
             <TableRow>
-                <TableCell align='center'>{ findItem(itemId, 'description') }</TableCell>
+                <TableCell align='center'>{ findItemByField('description') }</TableCell>
                 <TableCell align='center'>{ quantity }</TableCell>
-                <TableCell align='center'>${ findItem(itemId, 'price') * quantity }</TableCell>
+                <TableCell align='center'>${ findItemByField('price') * quantity }</TableCell>
                 <TableCell align='center'>xxxxxxxx</TableCell>
             </TableRow>
         );
