@@ -3,7 +3,7 @@ import { featuredEntities } from '.';
 
 const findItem = (itemId, field) => featuredEntities.filter(entity =>  entity.id === itemId).map(item => item[field]);
 
-export const cartTableBodyEntities = (cartItems) => {
+export const getCartTableBodyEntities = (cartItems) => {
     return cartItems.map(item => {
         const { itemId, quantity } = item;
         

@@ -4,7 +4,7 @@ import styles from './RightNavigationMenuIcons.module.css';
 import { 
     cartTableHeadEntities, 
     rightNavigationMenuIconsEntities ,
-    cartTableBodyEntities
+    getCartTableBodyEntities
 } from '../../../../entities';
 import useLocalStorageState from 'use-local-storage-state';
 import Cart from '../../../../Cart/Cart';
@@ -51,7 +51,7 @@ function RightNavigationMenuIcons() {
                   handleClose={ closeCart } 
                   tableContainerStyles={ tableContainerStyles }
                   tableHead={ cartTableHeadEntities }
-                  tableBody={ cartTableBodyEntities(cartItems) }/>
+                  tableBody={ getCartTableBodyEntities(cartItems) }/>
         </div>
     );
 }
