@@ -17,7 +17,8 @@ function Cart({
     return (
         <Modal open={open} 
                onClose={handleClose} 
-               style={{ display:'flex',alignItems:'center',justifyContent:'center' }}>
+               style={{ display:'flex',alignItems:'center',justifyContent:'center' }}
+               disableScrollLock>
             <TableContainer component={ Paper } style={{ width: '50rem' }}>
                 <Table>
                     <TableHead>
