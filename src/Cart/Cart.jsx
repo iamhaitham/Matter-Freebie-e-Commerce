@@ -1,5 +1,4 @@
 import { 
-    Modal, 
     Paper, 
     Table, 
     TableBody, 
@@ -9,29 +8,22 @@ import {
 } from "@mui/material";
 
 function Cart({ 
-    open, 
-    handleClose, 
     tableHead,
     tableBody
 }) {
     return (
-        <Modal open={open} 
-               onClose={handleClose} 
-               style={{ display:'flex',alignItems:'center',justifyContent:'center' }}
-               disableScrollLock>
-            <TableContainer component={ Paper } style={{ width: '50rem' }}>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            { tableHead }
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        { tableBody }
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Modal>
+        <TableContainer component={ Paper } style={{ width: '50rem' }}>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        { tableHead }
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    { tableBody }
+                </TableBody>
+            </Table>
+        </TableContainer>
     );
 }
 
