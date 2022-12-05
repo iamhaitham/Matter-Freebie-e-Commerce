@@ -11,7 +11,7 @@ import Cart from '../../../../Cart/Cart';
 import { useState } from 'react';
 
 function RightNavigationMenuIcons() {
-    const [cartItems] = useLocalStorageState('cartItems');
+    const [cartItems, setCartItems] = useLocalStorageState('cartItems');
     const [isCartOpen, setIsCartOpen] = useState(false);
 
     const { iconStyles } = styles;
@@ -50,7 +50,7 @@ function RightNavigationMenuIcons() {
             <Cart open={ isCartOpen } 
                   handleClose={ closeCart } 
                   tableHead={ cartTableHeadEntities }
-                  tableBody={ getCartTableBodyEntities(cartItems) }/>
+                  tableBody={ getCartTableBodyEntities(cartItems, setCartItems) }/>
         </div>
     );
 }
