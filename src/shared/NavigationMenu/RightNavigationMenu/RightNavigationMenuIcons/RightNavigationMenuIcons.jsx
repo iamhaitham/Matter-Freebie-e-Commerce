@@ -40,7 +40,10 @@ function RightNavigationMenuIcons() {
             );
         else 
             return (
-                <Icon key={ id } src={ src } alt={ alt } iconCss={ iconStyles }/>
+                <Icon key={ id } 
+                      src={ src } 
+                      alt={ alt } 
+                      iconCss={ iconStyles }/>
             );
     });
     
