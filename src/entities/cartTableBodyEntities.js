@@ -13,7 +13,7 @@ export const getCartTableBodyEntities = (cartItems, setCartItems) => {
             setCartItems(updatedCartItems);
         }
 
-        const decreaseCartItemQuantity = () =>{
+        const decreaseCartItemQuantity = () => {
             const cartItemIndex = cartItems.findIndex(ci => ci.itemId ===  item.itemId);
             const updatedItem = { ...cartItems[cartItemIndex], quantity: cartItems[cartItemIndex].quantity - 1 };
             if (updatedItem.quantity < 1) {
@@ -25,7 +25,7 @@ export const getCartTableBodyEntities = (cartItems, setCartItems) => {
             setCartItems(updatedCartItems);
         }
 
-        const increaseCartItemQuantity = () =>{
+        const increaseCartItemQuantity = () => {
             const cartItemIndex = cartItems.findIndex(ci => ci.itemId ===  item.itemId);
             const updatedItem = { ...cartItems[cartItemIndex], quantity: cartItems[cartItemIndex].quantity + 1 };
             const filterededCartItems = cartItems.filter(ci => ci.itemId !== item.itemId);
