@@ -1,12 +1,12 @@
 import { Suspense } from "react";
 import CircularLoader from "../CircularProgress/CircularLoader";
 
-const LazyLoadedComponent = ({ Element }) => {
+const LazyLoad = (Component) => ({ ...props }) => {
     return (
         <Suspense fallback={ <CircularLoader/> }>
-            <Element/>
+            <Component { ...props }/>
         </Suspense>
     );
 }
 
-export default LazyLoadedComponent;
+export default LazyLoad;
