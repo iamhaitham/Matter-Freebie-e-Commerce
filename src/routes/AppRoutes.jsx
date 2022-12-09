@@ -1,19 +1,24 @@
+import { lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Homepage from '../Homepage/Homepage';
 import Layout from './Layout';
-import ProductListing from '../ProductListing/ProductListing.jsx';
-import Login from '../Login/Login';
 import PrivateRoute from './PrivateRoute';
+import LazyLoad from '../shared/LazyLoad/LazyLoad';
+const Homepage = lazy(() => import('../Homepage/Homepage'));
+const LazyHomePage = LazyLoad(Homepage);
+const Login = lazy(() => import('../Login/Login'));
+const LazyLogin = LazyLoad(Login);
+const ProductListing = lazy(() => import('../ProductListing/ProductListing'));
+const LazyProductListing = LazyLoad(ProductListing);
 
 function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route element={ <Layout/> }>
-                    <Route index element={ <Homepage/> }/>
-                    <Route path='shop' element={ <ProductListing/> }/>
+                    <Route index element={ <LazyHomePage/> }/>
+                    <Route path='shop' element={ <LazyProductListing/> }/>
                     <Route element={ <PrivateRoute/> }>
-                        <Route path='login' element={ <Login/> }/>
+                        <Route path='login' element={ <LazyLogin/> }/>
                     </Route>
                 </Route>
             </Routes>

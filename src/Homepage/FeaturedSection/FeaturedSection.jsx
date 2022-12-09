@@ -1,11 +1,10 @@
-import { useReducer } from 'react';
+import { useReducer, lazy } from 'react';
 import Image from '../../shared/Image/Image';
 import ImageContainer from '../../shared/ImageContainer/ImageContainer';
 import SectionTitle from '../../shared/SectionTitle/SectionTitle';
 import Section from '../../shared/Section/Section';
 import Button from '../../shared/Button/Button';
 import styles from './FeaturedSection.module.css';
-import QuickView from '../../QuickView/QuickView';
 import { featuredEntities } from '../../entities';
 import { 
     featuredSectionReducer, 
@@ -13,6 +12,9 @@ import {
     featuredSectionReducerTypes
  } from '../../services/reducers';
 import { FeaturedSectionContext } from '../../services/contexts';
+import LazyLoad from '../../shared/LazyLoad/LazyLoad';
+const QuickView = lazy(() => import('../../QuickView/QuickView'));
+const LazyQuickView= LazyLoad(QuickView);
 
 function FeaturedSection() {
     const { 
@@ -129,9 +131,9 @@ function FeaturedSection() {
     function shouldOpenQuickView() {
         if (!!state.quickViewItem.id) {
             return (
-                <QuickView customCss={ quickViewStyles }
-                           entity={ state.quickViewItem }
-                           defaultMiniImage={ state.miniImage }/>
+                <LazyQuickView customCss={ quickViewStyles } 
+                               entity={ state.quickViewItem } 
+                               defaultMiniImage={ state.miniImage }/>
             );
         } else {
             return (
