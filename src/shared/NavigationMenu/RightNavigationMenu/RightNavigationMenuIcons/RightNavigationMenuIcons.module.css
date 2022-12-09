@@ -1,6 +1,13 @@
 .iconStyles > img {
     width: 25px;
     height: 25px;
-    cursor: pointer;
     margin: 0 1rem;
+}
+
+.unclickableIconStyles {
+    cursor: not-allowed;
+}
+
+.clickableIcomStyles {
+    cursor: pointer;
 }

@@ -15,7 +15,9 @@ function RightNavigationMenuIcons() {
     const [cartItems, setCartItems] = useLocalStorageState('cartItems');
     const [isCartOpen, setIsCartOpen] = useState(false);
 
-    const { iconStyles } = styles;
+    const { iconStyles, unclickableIconStyles, clickableIcomStyles } = styles;
+    const clickableIconsCss = `${ iconStyles } ${ clickableIcomStyles }`;
+    const unclickableIconsCss = `${ iconStyles } ${ unclickableIconStyles }`;
 
     const openCart = () => {
         setIsCartOpen(true);
@@ -35,16 +37,23 @@ function RightNavigationMenuIcons() {
                        color='primary'>
                     <Icon src={ src } 
                           alt={ alt } 
-                          iconCss={ iconStyles }
+                          iconCss={ clickableIconsCss }
                           handleClick={ openCart }/>
                 </Badge>
+            );
+        else if (id === 3 && (!cartItems || ( cartItems && !cartItems.length )))
+            return (
+                <Icon key={ id } 
+                      src={ src } 
+                      alt={ alt } 
+                      iconCss={ unclickableIconsCss }/>
             );
         else 
             return (
                 <Icon key={ id } 
                       src={ src } 
                       alt={ alt } 
-                      iconCss={ iconStyles }/>
+                      iconCss={ clickableIconsCss }/>
             );
     });
     
