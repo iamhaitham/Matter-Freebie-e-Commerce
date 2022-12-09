@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Matter Freebie e-Commerce
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Run
+1. Clone this repository.
+2. Go to the root directory if the repository and run ```npm install```.
+3. After the previous step is done, run ```npm run start```.
+4. Navigate to ```http://localhost:3000/```.
 
-## Available Scripts
+## Main functionalities 
+1. Login ```/login```: 
+    1. Incorrect email format:
+        - The email input will turn to red before the user clicks on 'SIGN IN'.
+        - A red toast notification will appear showing 'Email is not valid!' if the user clicks on 'SIGN IN'.
+        - No progress loader will appear (which indicates there is no request sent) in this case.
+    2. Unmatching email and password:
+        - A red toast notification will appear showing 'Incorrect email or password!'.
+    3. Matching email and password:
+        - The application will automatically navigate to '/'.
+        - A user token will be added to the localstorage.
+2. Logout:
+    - The user token will be removed from the localstorage.
+    - The user will stay in the same route.
+3. Navigation menu items:
+    - The user can click on 'SHOP' or 'LOGIN' and they will turn orange. 
+    - The user can click on the logo of the website, and the orange color will be reset.
+    - Clicking on 'LOGOUT' will not turn it to orange as the user will immediately see the 'LOGIN' in its place.
+    - Clicking on other tabs will not do anything (See [Attention](#attention)).
+4. Homepage ```/```:
+    - There is a 'Featured' section where you can hover over a product and see it in a Quick View mode.
+    - The user can select the quantity of the product, and then add it to the cart.
+    - Only the id and the price of the products are passed to the Quick View mode (See [Attention](#attention)).
+5. Shop ```/shop```:
+    - The user can sort the products by their prices.
+    - The user can filter the products by their categories.
+    - The user can always reset all the sorting and filters by clicking on 'RESET'.
+    - Not all filters can be used (See [Attention](#attention)).
+6. Cart:
+    - The cart icon does not show a badge if the cart is empty.
+    - Hovering over the empty cart icon shows a 'not-allowed' cursor to the user.
+    - The cart icon shows a badge the contains the number of unique products in the cart.
+    - Hovering over the non-empty cart icon gives the user the ability to click and display the cart dialog.
+    - The cart dialog is a popup with a table containing the major fields for each selected product.
+    - The user can use the cart popup to increase or decrease the quantity of any product, as well as totally removing it from the cart.
+    
+## Attention <a name="attention"/>
+ Please be aware all the following are not bugs:
+* Some tabs, buttons and links were only added to match the mockup. There was no intent of adding any functionality to them when I started working on this application.
+* Quick View mode is only passed the id and the price as its purpose is to allow the user to add unqiue products with some quantity of their choice, and then review their wishlist in the cart section.
+* Filtering in the Shop section is only there to demonstrate how it should work, and because I have a small number of products, I cannot attach all the categories to this small number of products.
 
-In the project directory, you can run:
+## React-specifics I used in this application:
+* I have used ```useContext``` hook in some components so that the I do not need to pass the props all the way to a deeply-nested component.
+* I have used protected (private) routes technique to not allow the logged in user to navigate to ```/login```.
+* I have used ```useReducer``` in some complext components to ditch the usage of many ```useState``` hooks.
+* I have used ```lazy``` function to lazy load some components and reduce the bundle size a little bit.
+* I have used one ```Higher Order Component (HOC)```.
 
-### `npm start`
+## React-specifics I did not use in this application:
+* ```useRef``` hook.
+* ```useEffect``` hook.
+* ```useMemo``` hook.
+* ```useCallback``` hook.
+* ```memo``` function.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Technologies & public APIs used
+* [React](https://beta.reactjs.org/)
+* [Axios](https://axios-http.com/)
+* [React Router](https://reactrouter.com/en/main)
+* [Material UI](https://mui.com/)
+* [Fake Store API](https://fakestoreapi.com/docs)
+* [use-local-storage-state](https://github.com/astoilkov/use-local-storage-state)
