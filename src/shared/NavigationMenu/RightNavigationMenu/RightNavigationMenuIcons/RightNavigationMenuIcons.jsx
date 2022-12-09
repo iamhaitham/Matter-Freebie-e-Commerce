@@ -8,6 +8,7 @@ import {
 } from '../../../../entities';
 import useLocalStorageState from 'use-local-storage-state';
 import Cart from '../../../../Cart/Cart';
+import ModalDialog from '../../../../shared/ModalDialog/ModalDialog';
 import { useState } from 'react';
 
 function RightNavigationMenuIcons() {
