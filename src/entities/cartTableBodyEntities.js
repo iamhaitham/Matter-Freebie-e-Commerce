@@ -6,11 +6,13 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 const findItem = (itemId, field) => featuredEntities.filter(entity =>  entity.id === itemId).map(item => item[field]);
 
+const sortUpdatedCartItems = (updatedCartItems) => updatedCartItems.sort((ciBefore, ciAfter)  => ciBefore.itemId - ciAfter.itemId);
+
 export const getCartTableBodyEntities = (cartItems, setCartItems) => {
     const getActions = (item) => {
         const removeCartItem  = () => {
-            const updatedCartItems =  cartItems.filter(ci => ci.itemId  !== item.itemId);
-            setCartItems(updatedCartItems);
+            const updatedCartItems =  cartItems.filter(ci => ci.itemId  !== item.itemId)
+            setCartItems(sortUpdatedCartItems(updatedCartItems));
         }
 
         const decreaseCartItemQuantity = () => {
@@ -21,16 +23,16 @@ export const getCartTableBodyEntities = (cartItems, setCartItems) => {
                 return;
             }
             const filterededCartItems = cartItems.filter(ci => ci.itemId !== item.itemId);
-            const updatedCartItems = [...filterededCartItems, updatedItem];
-            setCartItems(updatedCartItems);
+            const updatedCartItems = [...filterededCartItems, updatedItem].sort((ciBefore, ciAfter)  => ciBefore.itemId - ciAfter.itemId);
+            setCartItems(sortUpdatedCartItems(updatedCartItems));
         }
 
         const increaseCartItemQuantity = () => {
             const cartItemIndex = cartItems.findIndex(ci => ci.itemId ===  item.itemId);
             const updatedItem = { ...cartItems[cartItemIndex], quantity: cartItems[cartItemIndex].quantity + 1 };
             const filterededCartItems = cartItems.filter(ci => ci.itemId !== item.itemId);
-            const updatedCartItems = [...filterededCartItems, updatedItem];
-            setCartItems(updatedCartItems);
+            const updatedCartItems = [...filterededCartItems, updatedItem].sort((ciBefore, ciAfter)  => ciBefore.itemId - ciAfter.itemId);
+            setCartItems(sortUpdatedCartItems(updatedCartItems));
         }
 
         return (
@@ -50,7 +52,7 @@ export const getCartTableBodyEntities = (cartItems, setCartItems) => {
         )
     };
 
-    return cartItems.map(item => {
+    return sortUpdatedCartItems(cartItems).map(item => {
         const { itemId, quantity } = item;
         
         const findItemByField = (field) => findItem(itemId, field);
