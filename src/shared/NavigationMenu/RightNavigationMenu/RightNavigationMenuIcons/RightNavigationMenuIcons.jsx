@@ -12,7 +12,9 @@ import ModalDialog from '../../../../shared/ModalDialog/ModalDialog';
 import { useState } from 'react';
 
 function RightNavigationMenuIcons() {
-    const [cartItems, setCartItems] = useLocalStorageState('cartItems');
+    const [cartItems, setCartItems] = useLocalStorageState('cartItems', {
+        defaultValue: []
+    });
     const [isCartOpen, setIsCartOpen] = useState(false);
 
     const { iconStyles, unclickableIconStyles, clickableIcomStyles } = styles;
